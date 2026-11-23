@@ -54,6 +54,8 @@ svg text{font-family:var(--font-body);fill:var(--ink)}
 .backstage li{margin:4px 0}
 code{font-size:.85em;background:var(--bg);padding:1px 5px;border-radius:5px}
 @media (max-width:600px){figure{padding:12px 12px 10px}}
+.hint{display:none;font-size:.8rem;color:var(--muted);margin-bottom:8px}
+@media (max-width:800px){.hint{display:block}}
 </style>
 </head>
 <body>
@@ -71,6 +73,7 @@ code{font-size:.85em;background:var(--bg);padding:1px 5px;border-radius:5px}
   </header>
 
   <figure>
+    <p class="hint">Faites glisser le schéma vers la gauche pour tout voir.</p>
     <div class="fig fig--main">
     <svg viewBox="0 0 840 925" role="img" aria-label="Neuf actions dans l'ordre : Stéphane met le formulaire en ligne et envoie les liens à l'organisateur, l'organisateur les diffuse, le participant s'inscrit, l'automatisation confirme par e-mail avec copie à l'organisateur, le participant vire, l'organisateur pointe le virement, l'automatisation confirme la place, l'organisateur exporte et relance.">
       <defs>
