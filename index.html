@@ -162,6 +162,40 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
 @media (max-width:860px){.seq-grid{grid-template-columns:1fr}}
 @media (max-width:480px){.seq-steps li{grid-template-columns:42px minmax(0,1fr);gap:10px}.seq-steps li:not(:last-child)::before{left:20px}}
 
+/* Cas OFFOLIO */
+.camp-more{font-weight:600;font-size:.92rem;margin-top:auto}
+#offolio .forecast,#offolio .seq{margin-top:0}
+#offolio{display:block}
+.cs-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}
+.cs-kpis div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.cs-kpis b{font-family:var(--f-display);font-size:1.8rem;font-weight:600;color:var(--accent-ink);line-height:1.1}
+.cs-kpis span{font-size:.88rem;color:var(--muted)}
+#offolio > .seq,#offolio > .forecast,#offolio > .cs-block{margin-bottom:22px}
+.cs-block{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,3vw,30px);display:grid;gap:20px;min-width:0}
+.st-table table{min-width:0}
+.lv-bar{display:inline-block;height:10px;width:calc(var(--w) * .6);background:var(--accent);border-radius:0 4px 4px 0;vertical-align:middle;margin-right:8px}
+.fc-table .lv{white-space:nowrap;min-width:130px}
+.flow-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+svg.flow{display:block;width:100%;min-width:600px;height:auto;color:var(--muted)}
+svg.flow text{font-family:var(--f-body);fill:var(--fg)}
+svg.flow .t-b{font-size:13px;font-weight:600}
+svg.flow .t-s{font-size:11.5px;fill:var(--muted)}
+svg.flow .t-l{font-size:11px;fill:var(--muted);font-family:var(--f-mono)}
+svg.flow .n-main rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+svg.flow .n-end{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+svg.flow .n-resp{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+svg.flow .n-ok{fill:var(--accent);stroke:none}
+svg.flow .n-ok + text,svg.flow .n-ok + text + text{fill:#04201d}
+svg.flow .n-mid{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
+svg.flow .n-ko{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+svg.flow .e-main line,svg.flow .e-out line{stroke:currentColor;stroke-width:1.5}
+svg.flow .e-resp line{stroke:currentColor;stroke-width:1.3;stroke-dasharray:5 4}
+.flow-list{display:none;margin:0;padding-left:1.2rem;flex-direction:column;gap:8px;font-size:.92rem}
+.flow-list .fl-out{list-style:none;margin-left:-1.2rem;background:var(--accent-soft);border-radius:8px;padding:10px 12px}
+@media (max-width:600px){.flow-wrap{display:none}.flow-list{display:flex}}
+@media (max-width:860px){.cs-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.st-table .c-hide{display:none}.st-table table{font-size:.8rem}.st-table th,.st-table td{padding:7px 5px}.fc-table .lv{min-width:96px}.cs-kpis b{font-size:1.5rem}}
+
 /* Méthode */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;counter-reset:s}
 .steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -212,7 +246,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
   <div class="inner">
     <nav aria-label="Navigation principale">
       <a class="brand" href="#top">Stéphane Wickra</a>
-      <div class="links"><a href="#campagnes">Campagnes</a><a href="#outils">IA</a><a href="#methode">Méthode</a><a href="#contact">Contact</a></div>
+      <div class="links"><a href="#campagnes">Campagnes</a><a href="#offolio">Cas OFFOLIO</a><a href="#outils">IA</a><a href="#methode">Méthode</a><a href="#contact">Contact</a></div>
     </nav>
     <div class="hero" id="top">
       <div>
@@ -252,6 +286,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
           <li>235 leads au total : 129 par cold email, 106 par le site.</li>
           <li>Meilleures cibles : PMO et directeurs de programme, autour de 1 % de leads.</li>
         </ul>
+        <a class="camp-more" href="#offolio">Voir le cas détaillé ↓</a>
       </article>
       <article class="camp" aria-labelledby="c2">
         <header><h3 id="c2">Un acteur de la livraison express B2B</h3><span class="meta">Nov. 2022 – juin 2023 · au sein d'une agence growth B2B</span></header>
@@ -271,28 +306,24 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
         </ul>
       </article>
     </div>
-    <div class="forecast" aria-labelledby="t-fc">
-      <div class="fc-head">
-        <h3 id="t-fc">Comment je structure une campagne</h3>
-        <p>Version simplifiée du tableur que j'ai construit chez OFFOLIO pour planifier la prospection 2024 : une ligne par cible, son volume avant et après enrichissement, le planning d'envoi mois par mois, et les leads attendus selon le taux de conversion observé.</p>
-      </div>
-      <p class="fc-hint">Faites glisser le tableau vers la gauche pour voir le planning et les leads.</p>
-      <div class="fc-table">
-        <table>
-          <thead><tr><th scope="col">Cible</th><th scope="col" class="num">Potentiel</th><th scope="col" class="num">Enrichis</th><th scope="col" class="num m-h">Avr</th><th scope="col" class="num m-h">Mai</th><th scope="col" class="num m-h">Juin</th><th scope="col" class="num m-h">Juil</th><th scope="col" class="num m-h">Sept</th><th scope="col" class="num m-h">Oct</th><th scope="col" class="num m-h">Nov</th><th scope="col" class="num m-h">Déc</th><th scope="col" class="num">Envois</th><th scope="col" class="num">Taux</th><th scope="col" class="num">Leads visés</th></tr></thead>
-          <tbody><tr><th scope="row">PMO</th><td class="num">7 000</td><td class="num">4 200</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 200 envois">1,2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">4 200</td><td class="num">0,10 %</td><td class="num"><b>4</b></td></tr><tr><th scope="row">Directeurs de projet</th><td class="num">11 000</td><td class="num">6 600</td><td class="m l3" title="2 000 envois">2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">3 000</td><td class="num">1,37 %</td><td class="num"><b>90</b></td></tr><tr><th scope="row">Partners (consulting)</th><td class="num">715</td><td class="num">429</td><td class="m l1" title="429 envois">0,4k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">429</td><td class="num">0,23 %</td><td class="num"><b>1</b></td></tr><tr><th scope="row">Project managers</th><td class="num">49 000</td><td class="num">29 400</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l3" title="2 800 envois">2,8k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="num">13 800</td><td class="num">0,10 %</td><td class="num"><b>29</b></td></tr><tr class="off"><th scope="row">Chefs de projet</th><td class="num">100 000</td><td class="num">60 000</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">—</td><td class="num">—</td><td class="num"><b>—</b></td></tr><tr><th scope="row">Directeurs de programme</th><td class="num">10 000</td><td class="num">6 000</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l4" title="4 000 envois">4k</td><td class="m l3" title="2 000 envois">2k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">7 000</td><td class="num">0,10 %</td><td class="num"><b>6</b></td></tr><tr><th scope="row">Resp. planification</th><td class="num">16 000</td><td class="num">9 600</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m l3" title="2 000 envois">2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="num">9 000</td><td class="num">0,10 %</td><td class="num"><b>10</b></td></tr><tr><th scope="row">Resp. innovation</th><td class="num">15 000</td><td class="num">9 000</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m l3" title="2 000 envois">2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="num">7 000</td><td class="num">0,10 %</td><td class="num"><b>9</b></td></tr><tr><th scope="row">Resp. transformation digitale</th><td class="num">12 000</td><td class="num">7 200</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="num">5 000</td><td class="num">0,10 %</td><td class="num"><b>7</b></td></tr><tr><th scope="row">Directeurs des opérations</th><td class="num">41 000</td><td class="num">24 600</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="num">5 000</td><td class="num">0,10 %</td><td class="num"><b>25</b></td></tr><tr><th scope="row">Resp. bureau d'études</th><td class="num">7 000</td><td class="num">4 200</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 500 envois">1,5k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l1" title="700 envois">0,7k</td><td class="num">4 200</td><td class="num">0,10 %</td><td class="num"><b>4</b></td></tr><tr><th scope="row">Resp. maintenance (pharma)</th><td class="num">2 500</td><td class="num">1 500</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l1" title="500 envois">0,5k</td><td class="m"></td><td class="m"></td><td class="num">1 500</td><td class="num">0,10 %</td><td class="num"><b>2</b></td></tr></tbody>
-          <tfoot><tr><th scope="row">Total</th><td class="num">271 215</td><td class="num">162 729</td><td class="num m-t">2,4k</td><td class="num m-t">8k</td><td class="num m-t">8k</td><td class="num m-t">9k</td><td class="num m-t">9k</td><td class="num m-t">8k</td><td class="num m-t">8k</td><td class="num m-t">7,7k</td><td class="num">60 129</td><td></td><td class="num"><b>≈ 185</b></td></tr></tfoot>
-        </table>
-      </div>
-      <ul class="fc-rules">
-        <li><b>Capacité</b> : 2 000 emails par adresse d'envoi et par mois, d'où un rythme de 8 000 à 9 000 envois mensuels.</li>
-        <li><b>Priorité</b> : d'abord les plus grosses entreprises, et une région ciblée en parallèle d'un salon.</li>
-        <li><b>Pilotage</b> : point d'étape fin juin, 16 742 envois et 39 leads, pour recaler les taux et réallouer les volumes vers les cibles qui convertissent.</li>
-      </ul>
+    <p class="others"><b>Autres clients accompagnés au sein de l'agence</b> : une start-up de robotique logistique, un groupe industriel international, une agence de communication tech, et d'autres acteurs B2B.</p>
+  </section>
+
+  <section id="offolio" aria-labelledby="t-off">
+    <div class="sec-head">
+      <span class="kicker">Cas détaillé · en interne</span>
+      <h2 id="t-off">Cas OFFOLIO</h2>
+      <p>OFFOLIO édite un assistant IA de planification de projets, vendu aux grands comptes industriels. En 2024 et 2025, j'ai conçu et piloté sa prospection par cold email : ciblage, enrichissement, séquences, planning d'envoi et reporting.</p>
+    </div>
+    <div class="cs-kpis">
+      <div><b>23 331</b><span>emails envoyés sur 6 cibles</span></div>
+      <div><b>35 %</b><span>d'ouverture moyenne</span></div>
+      <div><b>235</b><span>leads, dont 129 par cold email</span></div>
+      <div><b>213</b><span>démos, dont 44 personnalisées</span></div>
     </div>
     <div class="seq" aria-labelledby="t-seq">
       <div class="fc-head">
-        <h3 id="t-seq">Ma séquence type, chez OFFOLIO</h3>
+        <h3 id="t-seq">Les séquences utilisées</h3>
         <p>Trois emails sur huit jours, envoyés avec Lemlist et déclinés par persona (une version dédiée aux PMO, par exemple). Extraits annotés.</p>
       </div>
       <div class="seq-grid">
@@ -303,7 +334,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
               <p class="seq-subj">Objet : L'IA au service de la performance projet pour {{companyName}}</p>
               <blockquote>« OFFOLIO est le nouvel assistant IA, au service de la performance projet. »</blockquote>
               <p class="seq-note">Un positionnement en une phrase, puis trois bénéfices, chacun relié à une brique IA : générer un planning, l'enrichir, simuler des scénarios.</p>
-              <blockquote>« Airbus Defense &amp; Space, Orano, MI-GSO, ou encore FIVES Groupe nous font déjà confiance. »</blockquote>
+              <blockquote>« Airbus Defense &amp; Space, Orano […] ou encore FIVES Groupe nous font déjà confiance. »</blockquote>
               <blockquote>« Seriez-vous disponible […] mercredi à 9h, jeudi à 9h30, vendredi à 10h ? »</blockquote>
               <p class="seq-note">Un appel de 30 minutes, avec trois créneaux précis plutôt qu'un « quand êtes-vous dispo ? ».</p>
             </div>
@@ -329,7 +360,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
         <aside class="seq-rules" aria-label="Principes de la séquence">
           <p class="seq-rules-t">Les principes</p>
           <dl>
-            <div><dt>Preuve sociale</dt><dd>Quatre références industrielles citées dès le premier email.</dd></div>
+            <div><dt>Preuve sociale</dt><dd>Des références industrielles citées dès le premier email.</dd></div>
             <div><dt>Créneaux précis</dt><dd>Trois propositions datées, renouvelées à chaque relance.</dd></div>
             <div><dt>Relances dans le fil</dt><dd>Sans nouvel objet, pour rester sous les yeux avec le contexte.</dd></div>
             <div><dt>Signal événementiel</dt><dd>Au printemps 2024, chaque email rappelait la conférence de notre CEO au salon du PMI (R24), pour proposer une rencontre sur place.</dd></div>
@@ -338,7 +369,76 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
         </aside>
       </div>
     </div>
-    <p class="others"><b>Autres clients accompagnés au sein de l'agence</b> : une start-up de robotique logistique, un groupe industriel international, une agence de communication tech, et d'autres acteurs B2B.</p>
+    <div class="cs-block" aria-labelledby="t-flow">
+      <div class="fc-head">
+        <h3 id="t-flow">Le flux de la séquence</h3>
+        <p>Tant que le contact ne répond pas, la séquence avance. Dès qu'il répond, elle s'arrête et la réponse est traitée à la main.</p>
+      </div>
+      <div class="flow-wrap">
+      <svg class="flow" viewBox="0 0 760 266" role="img" aria-label="Email 1 à J+0, relance 1 à J+4 puis relance 2 à J+8 tant qu'il n'y a pas de réponse, puis fin. Toute réponse arrête la séquence et mène à une démo, une mise en relation ou un refus.">
+        <defs><marker id="fa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><polygon points="0,0 8,4 0,8" fill="currentColor"/></marker></defs>
+        <g class="n-main">
+          <rect x="10" y="18" width="140" height="66" rx="10"/><text x="24" y="42" class="t-b">J+0 · Email 1</text><text x="24" y="60" class="t-s">accroche, preuves,</text><text x="24" y="74" class="t-s">3 créneaux</text>
+          <rect x="255" y="18" width="140" height="66" rx="10"/><text x="269" y="42" class="t-b">J+4 · Relance 1</text><text x="269" y="60" class="t-s">même fil,</text><text x="269" y="74" class="t-s">3 autres créneaux</text>
+          <rect x="500" y="18" width="140" height="66" rx="10"/><text x="514" y="42" class="t-b">J+8 · Relance 2</text><text x="514" y="60" class="t-s">même fil, demande</text><text x="514" y="74" class="t-s">de redirection</text>
+        </g>
+        <rect class="n-end" x="690" y="30" width="62" height="42" rx="10"/><text x="721" y="56" class="t-s" text-anchor="middle">Fin</text>
+        <g class="e-main">
+          <line x1="150" y1="51" x2="253" y2="51" marker-end="url(#fa)"/><line x1="395" y1="51" x2="498" y2="51" marker-end="url(#fa)"/><line x1="640" y1="51" x2="688" y2="51" marker-end="url(#fa)"/>
+        </g>
+        <text x="202" y="42" class="t-l" text-anchor="middle">+4 jours</text><text x="202" y="68" class="t-l" text-anchor="middle">sans réponse</text>
+        <text x="447" y="42" class="t-l" text-anchor="middle">+4 jours</text><text x="447" y="68" class="t-l" text-anchor="middle">sans réponse</text>
+        <g class="e-resp">
+          <line x1="80" y1="84" x2="80" y2="128" marker-end="url(#fa)"/><line x1="325" y1="84" x2="325" y2="128" marker-end="url(#fa)"/><line x1="570" y1="84" x2="570" y2="128" marker-end="url(#fa)"/>
+        </g>
+        <text x="88" y="110" class="t-l">réponse</text><text x="333" y="110" class="t-l">réponse</text><text x="578" y="110" class="t-l">réponse</text>
+        <rect class="n-resp" x="10" y="130" width="630" height="34" rx="10"/><text x="325" y="152" class="t-b" text-anchor="middle">La séquence s'arrête, je traite la réponse</text>
+        <g class="e-out"><line x1="110" y1="164" x2="110" y2="202" marker-end="url(#fa)"/><line x1="325" y1="164" x2="325" y2="202" marker-end="url(#fa)"/><line x1="540" y1="164" x2="540" y2="202" marker-end="url(#fa)"/></g>
+        <rect class="n-ok" x="10" y="204" width="200" height="52" rx="10"/><text x="24" y="226" class="t-b">Démo calée</text><text x="24" y="244" class="t-s">sur l'un des créneaux proposés</text>
+        <rect class="n-mid" x="225" y="204" width="200" height="52" rx="10"/><text x="239" y="226" class="t-b">Mise en relation</text><text x="239" y="244" class="t-s">vers le bon interlocuteur</text>
+        <rect class="n-ko" x="440" y="204" width="200" height="52" rx="10"/><text x="454" y="226" class="t-b">KO</text><text x="454" y="244" class="t-s">pas intéressé, sorti de la liste</text>
+      </svg>
+      </div>
+      <ol class="flow-list">
+        <li><b>J+0 · Email 1</b> : accroche, preuves, 3 créneaux.</li>
+        <li><b>J+4 · Relance 1</b>, si pas de réponse : même fil, 3 autres créneaux.</li>
+        <li><b>J+8 · Relance 2</b>, si toujours rien : même fil, demande de redirection. Puis fin.</li>
+        <li class="fl-out"><b>Dès qu'il y a une réponse</b>, la séquence s'arrête : démo calée, mise en relation vers le bon interlocuteur, ou KO.</li>
+      </ol>
+    </div>
+    <div class="forecast" aria-labelledby="t-fc">
+      <div class="fc-head">
+        <h3 id="t-fc">Le planning d'envoi : comment je structure une campagne</h3>
+        <p>Version simplifiée du tableur que j'ai construit chez OFFOLIO pour planifier la prospection 2024 : une ligne par cible, son volume avant et après enrichissement, le planning d'envoi mois par mois, et les leads attendus selon le taux de conversion observé.</p>
+      </div>
+      <p class="fc-hint">Faites glisser le tableau vers la gauche pour voir le planning et les leads.</p>
+      <div class="fc-table">
+        <table>
+          <thead><tr><th scope="col">Cible</th><th scope="col" class="num">Potentiel</th><th scope="col" class="num">Enrichis</th><th scope="col" class="num m-h">Avr</th><th scope="col" class="num m-h">Mai</th><th scope="col" class="num m-h">Juin</th><th scope="col" class="num m-h">Juil</th><th scope="col" class="num m-h">Sept</th><th scope="col" class="num m-h">Oct</th><th scope="col" class="num m-h">Nov</th><th scope="col" class="num m-h">Déc</th><th scope="col" class="num">Envois</th><th scope="col" class="num">Taux</th><th scope="col" class="num">Leads visés</th></tr></thead>
+          <tbody><tr><th scope="row">PMO</th><td class="num">7 000</td><td class="num">4 200</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 200 envois">1,2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">4 200</td><td class="num">0,10 %</td><td class="num"><b>4</b></td></tr><tr><th scope="row">Directeurs de projet</th><td class="num">11 000</td><td class="num">6 600</td><td class="m l3" title="2 000 envois">2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">3 000</td><td class="num">1,37 %</td><td class="num"><b>90</b></td></tr><tr><th scope="row">Partners (consulting)</th><td class="num">715</td><td class="num">429</td><td class="m l1" title="429 envois">0,4k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">429</td><td class="num">0,23 %</td><td class="num"><b>1</b></td></tr><tr><th scope="row">Project managers</th><td class="num">49 000</td><td class="num">29 400</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l3" title="2 800 envois">2,8k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="num">13 800</td><td class="num">0,10 %</td><td class="num"><b>29</b></td></tr><tr><th scope="row">Directeurs de programme</th><td class="num">10 000</td><td class="num">6 000</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l4" title="4 000 envois">4k</td><td class="m l3" title="2 000 envois">2k</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="num">7 000</td><td class="num">0,10 %</td><td class="num"><b>6</b></td></tr><tr><th scope="row">Resp. planification</th><td class="num">16 000</td><td class="num">9 600</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m l3" title="2 000 envois">2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l3" title="2 000 envois">2k</td><td class="m l3" title="2 000 envois">2k</td><td class="num">9 000</td><td class="num">0,10 %</td><td class="num"><b>10</b></td></tr><tr><th scope="row">Resp. innovation</th><td class="num">15 000</td><td class="num">9 000</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m l3" title="2 000 envois">2k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="num">7 000</td><td class="num">0,10 %</td><td class="num"><b>9</b></td></tr><tr><th scope="row">Resp. transformation digitale</th><td class="num">12 000</td><td class="num">7 200</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="num">5 000</td><td class="num">0,10 %</td><td class="num"><b>7</b></td></tr><tr><th scope="row">Directeurs des opérations</th><td class="num">41 000</td><td class="num">24 600</td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 000 envois">1k</td><td class="num">5 000</td><td class="num">0,10 %</td><td class="num"><b>25</b></td></tr><tr><th scope="row">Resp. bureau d'études</th><td class="num">7 000</td><td class="num">4 200</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l2" title="1 500 envois">1,5k</td><td class="m l2" title="1 000 envois">1k</td><td class="m l1" title="700 envois">0,7k</td><td class="num">4 200</td><td class="num">0,10 %</td><td class="num"><b>4</b></td></tr><tr><th scope="row">Resp. maintenance (pharma)</th><td class="num">2 500</td><td class="num">1 500</td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m"></td><td class="m l2" title="1 000 envois">1k</td><td class="m l1" title="500 envois">0,5k</td><td class="m"></td><td class="m"></td><td class="num">1 500</td><td class="num">0,10 %</td><td class="num"><b>2</b></td></tr></tbody>
+          <tfoot><tr><th scope="row">Total</th><td class="num">171 215</td><td class="num">102 729</td><td class="num m-t">2,4k</td><td class="num m-t">8k</td><td class="num m-t">8k</td><td class="num m-t">9k</td><td class="num m-t">9k</td><td class="num m-t">8k</td><td class="num m-t">8k</td><td class="num m-t">7,7k</td><td class="num">60 129</td><td></td><td class="num"><b>≈ 185</b></td></tr></tfoot>
+        </table>
+      </div>
+      <ul class="fc-rules">
+        <li><b>Capacité</b> : 2 000 emails par adresse d'envoi et par mois, d'où un rythme de 8 000 à 9 000 envois mensuels.</li>
+        <li><b>Priorité</b> : d'abord les plus grosses entreprises, et une région ciblée en parallèle d'un salon.</li>
+        <li><b>Pilotage</b> : point d'étape fin juin, 16 742 envois et 39 leads, pour recaler les taux et réallouer les volumes vers les cibles qui convertissent.</li>
+      </ul>
+    </div>
+    <div class="cs-block" aria-labelledby="t-st">
+      <div class="fc-head">
+        <h3 id="t-st">Les résultats par cible</h3>
+        <p>Extrait de mon reporting cold-emailing. Les meilleures cibles convertissent autour de 1 % des envois, soit quatre à cinq fois plus que les moins bonnes : c'est ce qui guide la réallocation des volumes.</p>
+      </div>
+      <div class="fc-table st-table">
+        <table>
+          <thead><tr><th scope="col">Cible</th><th scope="col" class="num">Envois</th><th scope="col" class="num">Ouverture</th><th scope="col" class="num c-hide">Clics</th><th scope="col" class="num">Leads</th><th scope="col">Leads / envois</th></tr></thead>
+          <tbody><tr><th scope="row">Directeurs de programme</th><td class="num">3 911</td><td class="num">42 %</td><td class="num c-hide">20 %</td><td class="num">40</td><td class="lv"><span class="lv-bar" style="--w:100%"></span><b>1,02 %</b></td></tr><tr><th scope="row">PMO</th><td class="num">1 977</td><td class="num">55 %</td><td class="num c-hide">38 %</td><td class="num">20</td><td class="lv"><span class="lv-bar" style="--w:99%"></span><b>1,01 %</b></td></tr><tr><th scope="row">Directeurs de projet</th><td class="num">5 977</td><td class="num">38 %</td><td class="num c-hide">16 %</td><td class="num">48</td><td class="lv"><span class="lv-bar" style="--w:78%"></span><b>0,80 %</b></td></tr><tr><th scope="row">Chefs de projet</th><td class="num">5 253</td><td class="num">26 %</td><td class="num c-hide">9 %</td><td class="num">25</td><td class="lv"><span class="lv-bar" style="--w:47%"></span><b>0,48 %</b></td></tr><tr><th scope="row">Project managers</th><td class="num">3 098</td><td class="num">38 %</td><td class="num c-hide">23 %</td><td class="num">12</td><td class="lv"><span class="lv-bar" style="--w:38%"></span><b>0,39 %</b></td></tr><tr><th scope="row">Planification</th><td class="num">3 115</td><td class="num">20 %</td><td class="num c-hide">8 %</td><td class="num">7</td><td class="lv"><span class="lv-bar" style="--w:22%"></span><b>0,22 %</b></td></tr></tbody>
+          <tfoot><tr><th scope="row">Total</th><td class="num">23 331</td><td class="num">35 %</td><td class="num c-hide">17 %</td><td class="num">152</td><td class="lv"><b>0,65 %</b></td></tr></tfoot>
+        </table>
+      </div>
+      <p class="fc-note">Les 152 leads email comptent 129 rendez-vous et 23 mises en relation vers le bon interlocuteur. Avec les 106 leads venus du site, cela fait 235 leads, qui ont donné 213 démos, dont 44 sont allées jusqu'à la démo personnalisée.</p>
+    </div>
   </section>
 
   <section id="outils" aria-labelledby="t-out">
