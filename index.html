@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Stéphane Wickra, Builder IA">
-<meta property="og:description" content="Je transforme un besoin en outil qui tourne en production. Deux projets en ligne, construits avec Claude Code.">
+<meta property="og:title" content="Stéphane Wickra, GTM Engineer Outbound">
+<meta property="og:description" content="Je remplis des agendas. 71 000 emails B2B sur 3 clients, 213 démos décrochées pour OFFOLIO, et les outils pour automatiser le tout.">
 <meta property="og:image" content="https://wickra.pro/img/og.jpg">
 <meta property="og:url" content="https://wickra.pro/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b1424">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1424'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='%232dd4bf' font-family='Arial' font-weight='700'%3ESW%3C/text%3E%3C/svg%3E">
-<title>Stéphane Wickra, Builder IA</title>
-<meta name="description" content="Builder IA et GTM Engineer. Je transforme un besoin en outil qui tourne en production. Deux projets en ligne.">
+<title>Stéphane Wickra, GTM Engineer Outbound</title>
+<meta name="description" content="GTM Engineer Outbound. Je remplis des agendas : campagnes B2B, enrichissement, automatisation avec Lemlist, Dropcontact, Make, n8n et Claude.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Concept : une page de studio. Héros sombre avec portrait, puis chaque projet montré en grand dans un cadre de navigateur, avec le besoin, le construit et le résultat à côté. Signature : le filet dégradé du CV. */
@@ -92,6 +92,29 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
 .chips span{font-family:var(--f-mono);font-size:.8rem;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:3px 9px}
 .decision{border-left:3px solid var(--accent);padding:4px 0 4px 16px;color:var(--fg)}
 
+/* Campagnes */
+.camps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.camp{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px 24px 26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.camp header{display:flex;flex-direction:column;gap:4px}
+.camp h3{font-size:1.4rem}
+.camp .meta{font-family:var(--f-mono);font-size:.76rem;color:var(--muted)}
+.camp .big{font-family:var(--f-display);font-size:2.4rem;font-weight:600;line-height:1;color:var(--accent-ink)}
+.camp .big small{display:block;font-family:var(--f-body);font-size:.9rem;font-weight:500;color:var(--fg);margin-top:8px;line-height:1.4}
+.camp ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.camp.lead{border-color:var(--accent)}
+.stack{margin-top:34px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px 56px;align-items:start}
+.stack h3{font-size:1.3rem}
+.stack p{color:var(--muted);font-size:.95rem;margin-top:8px}
+.chips span.soon{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+
+.teaser{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px 44px;align-items:center;text-decoration:none;color:inherit}
+.teaser .t-body{display:flex;flex-direction:column;gap:14px}
+.teaser h3{font-size:clamp(1.35rem,3vw,1.8rem)}
+.teaser p{color:var(--muted)}
+.teaser .go{font-weight:600;color:var(--accent-ink)}
+.teaser:hover .go{text-decoration:underline}
+@media (max-width:860px){.teaser{grid-template-columns:1fr}}
+
 /* Méthode */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;counter-reset:s}
 .steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -112,7 +135,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;gap:34px;padding-block:36px 56px}
   .portrait{justify-self:start;width:200px}
-  .body,.honest{grid-template-columns:1fr}
+  .body,.honest,.stack{grid-template-columns:1fr}
   nav .links{display:none}
   section{padding-top:60px}
 }
@@ -126,15 +149,15 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
   <div class="inner">
     <nav aria-label="Navigation principale">
       <a class="brand" href="#top">Stéphane Wickra</a>
-      <div class="links"><a href="#projets">Projets</a><a href="#methode">Méthode</a><a href="#contact">Contact</a></div>
+      <div class="links"><a href="#campagnes">Campagnes</a><a href="#outils">Outils</a><a href="#methode">Méthode</a><a href="#contact">Contact</a></div>
     </nav>
     <div class="hero" id="top">
       <div>
-        <span class="kicker" style="color:#5eead4">Builder IA · GTM Engineer</span>
-        <h1>Je transforme un besoin en outil qui tourne en production.</h1>
-        <p class="sub"><strong>Je pars du terrain</strong> : je cartographie le processus, je fixe les règles et les limites, j'articule la donnée, puis je construis avec l'IA jusqu'à une mise en ligne utilisée par de vraies personnes.</p>
+        <span class="kicker" style="color:#5eead4">GTM Engineer · Outbound B2B</span>
+        <h1>Je remplis des agendas.</h1>
+        <p class="sub"><strong>Je pars de la cible</strong> : je construis les listes, j'enrichis la donnée, j'écris et j'automatise les séquences, puis je livre des rendez-vous aux commerciaux. Et quand l'outil qu'il faut n'existe pas, je le construis avec l'IA.</p>
         <div class="cta">
-          <a class="btn primary" href="#projets">Voir les projets</a>
+          <a class="btn primary" href="#campagnes">Voir les campagnes</a>
           <a class="btn ghost" href="#contact">Me contacter</a>
         </div>
       </div>
@@ -142,75 +165,78 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
     </div>
     <div class="facts">
       <div><b>6 ans</b><span>d'acquisition B2B</span></div>
-      <div><b>2 produits</b><span>en ligne et utilisés</span></div>
-      <div><b>1 000+</b><span>démos générées, tous clients confondus</span></div>
+      <div><b>≈ 71 000</b><span>emails envoyés pour 3 clients B2B</span></div>
+      <div><b>213</b><span>démos décrochées pour OFFOLIO</span></div>
+      <div><b>252</b><span>leads qualifiés livrés à Top Chrono</span></div>
     </div>
   </div>
 </div>
 
 <div class="inner">
-  <section id="projets" aria-labelledby="t-proj">
+  <section id="campagnes" aria-labelledby="t-camp">
     <div class="sec-head">
-      <span class="kicker">Projets achevés</span>
-      <h2 id="t-proj">Deux outils, de l'idée à la mise en ligne.</h2>
-      <p>Chacun est en ligne, utilisé par de vraies personnes, et géré par son propriétaire sans moi.</p>
+      <span class="kicker">Campagnes outbound</span>
+      <h2 id="t-camp">Trois clients B2B, des chiffres vérifiables.</h2>
+      <p>Environ 71 000 emails envoyés au total. Les chiffres sont tirés de mes fichiers de suivi de campagne.</p>
     </div>
+    <div class="camps">
+      <article class="camp lead" aria-labelledby="c1">
+        <header><h3 id="c1">OFFOLIO</h3><span class="meta">2024 – 2025 · Lemlist</span></header>
+        <p class="big">213 démos<small>au premier rendez-vous, soit environ une démo pour 110 envois</small></p>
+        <ul>
+          <li>≈ 23 300 emails envoyés, 35 % d'ouverture.</li>
+          <li>44 démos sont allées jusqu'à la démo personnalisée (étape 2).</li>
+          <li>235 leads au total : 129 par cold email, 106 par le site.</li>
+          <li>Meilleures cibles : PMO et directeurs de programme, autour de 1 % de leads.</li>
+        </ul>
+      </article>
+      <article class="camp" aria-labelledby="c2">
+        <header><h3 id="c2">Top Chrono</h3><span class="meta">Nov. 2022 – juin 2023 · via mon agence Enablers</span></header>
+        <p class="big">252 leads<small>qualifiés transmis au client, soit 1,13 % de conversion</small></p>
+        <ul>
+          <li>≈ 22 200 contacts sur 8 cibles.</li>
+          <li>Taux de réponse de 2,2 % à 5,3 % selon la campagne.</li>
+          <li>Meilleures cibles : Santé 2,6 %, Courses B2B 1,7 %.</li>
+        </ul>
+      </article>
+      <article class="camp" aria-labelledby="c3">
+        <header><h3 id="c3">Be Nomad</h3><span class="meta">2022 · via mon agence Enablers</span></header>
+        <p class="big">≈ 128 leads<small>générés par cold email</small></p>
+        <ul>
+          <li>≈ 25 500 emails envoyés.</li>
+          <li>33 % d'ouverture.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="stack">
+      <div>
+        <h3>Ma stack outbound</h3>
+        <p>Séquences, enrichissement et automatisations, du ciblage jusqu'à l'agenda du commercial.</p>
+      </div>
+      <div>
+        <div class="chips"><span>Lemlist</span><span>Dropcontact</span><span>Make</span><span>n8n</span><span>Claude (automatisation en code)</span><span class="soon">Clay, en cours de prise en main</span></div>
+      </div>
+    </div>
+  </section>
 
-    <article class="project" aria-labelledby="p1">
-      <div class="shots">
-        <figure class="frame" style="margin:0">
-          <div class="bar"><i></i><i></i><i></i><span>kds-france.com</span></div>
-          <img src="img/kds-site.jpg" alt="Page d'accueil du site Karaté-Do Shotokai France" width="1496" height="812" loading="lazy">
-        </figure>
+  <section id="outils" aria-labelledby="t-out">
+    <div class="sec-head">
+      <span class="kicker">Outils construits</span>
+      <h2 id="t-out">Je construis aussi les outils.</h2>
+      <p>Quand l'outil qu'il faut n'existe pas, je le construis avec Claude Code, de l'idée à la mise en ligne.</p>
+    </div>
+    <a class="teaser" href="kds.html">
+      <figure class="frame" style="margin:0">
+        <div class="bar"><i></i><i></i><i></i><span>kds-france.com</span></div>
+        <img src="img/kds-site.jpg" alt="Page d'accueil du site Karaté-Do Shotokai France" width="1496" height="812" loading="lazy">
+      </figure>
+      <div class="t-body">
+        <span class="badge">En ligne, utilisé</span>
+        <h3>Karaté-Do Shotokai France : un site avec back-office et un système d'inscriptions</h3>
+        <p>Un site bilingue que l'association met à jour seule, un espace membres, et des inscriptions à un stage international avec paiement et suivi. Géré par son propriétaire, sans moi.</p>
+        <span class="go">Voir ce que j'ai fait pour KDS →</span>
       </div>
-      <div class="body">
-        <div class="p-title">
-          <span class="badge">En ligne</span>
-          <h3 id="p1">Un site d'association, avec son back-office</h3>
-          <p>Remplacer un ancien site figé par un site vivant que l'association met à jour elle-même, avec un espace réservé aux membres.</p>
-          <a class="go" href="https://kds-france.com" target="_blank" rel="noopener">Voir le site en ligne</a>
-        </div>
-        <dl>
-          <div><dt>Avant</dt><dd>Un site en cadres sur un hébergement statique, un certificat HTTPS cassé et des centaines de liens externes fragiles vers les photos.</dd></div>
-          <div><dt>Construit</dt><dd><ul>
-            <li>12 pages en français et en anglais, dont les stages et les clubs sont lus depuis la base : toujours à jour.</li>
-            <li>Un back-office pour les stages, clubs, galeries, annuaire, et des accès par invitation pour les responsables de club.</li>
-            <li>Un espace membres protégé côté serveur, avec galeries, vidéos et annuaire PDF généré à la demande.</li>
-            <li>La reprise de l'archive de l'ancien site vers un stockage d'objets, avec un script de migration rejouable.</li>
-          </ul></dd></div>
-          <div><dt>Pile</dt><dd><div class="chips"><span>Node.js</span><span>Express</span><span>Turso (libSQL)</span><span>Cloudflare R2</span><span>URLs signées</span><span>Render</span><span>Déploiement auto sur Git</span></div></dd></div>
-          <div><dt>Résultat</dt><dd>En ligne sur un nom de domaine propre, en HTTPS, sur des offres d'hébergement gratuites. Modifier une date ou un club depuis l'admin se voit tout de suite, sans redéployer.</dd></div>
-        </dl>
-      </div>
-    </article>
-
-    <article class="project" aria-labelledby="p2">
-      <div class="shots two">
-        <figure class="frame" style="margin:0">
-          <div class="bar"><i></i><i></i><i></i><span>kds-france.com/stage-paris-2027</span></div>
-          <img src="img/form-choices.jpg" alt="Formulaire d'inscription au stage avec récapitulatif du montant" width="1496" height="812" loading="lazy">
-        </figure>
-      </div>
-      <div class="body">
-        <div class="p-title">
-          <span class="badge">En ligne, utilisé</span>
-          <h3 id="p2">Inscriptions à un stage : formulaire, paiement et suivi</h3>
-          <p>Un organisateur gérait un stage international dans des fichiers Excel. Il lui fallait un formulaire gratuit, sans compte tiers, avec le règlement, et surtout très simple à utiliser seul.</p>
-          <a class="go" href="https://kds-france.com/stage-paris-2027" target="_blank" rel="noopener">Voir le formulaire</a>
-        </div>
-        <dl>
-          <div><dt>Construit</dt><dd><ul>
-            <li>Deux formulaires, France et international, avec les forfaits d'hébergement et de repas de l'organisateur et un récapitulatif du montant en direct.</li>
-            <li>Une confirmation avec RIB, une fiche d'inscription en PDF générée côté serveur, des e-mails automatiques et une page « Retrouver mon inscription ».</li>
-            <li>Un suivi pour l'organisateur : filtres, statuts en attente ou payée, export Excel au format de ses propres feuilles, actualisation automatique.</li>
-            <li>Une adresse sur le site du club, avec une adresse e-mail publique qui redirige vers lui.</li>
-          </ul></dd></div>
-          <div><dt>Pile</dt><dd><div class="chips"><span>Cloudflare Workers</span><span>D1 (SQL)</span><span>Génération PDF</span><span>SMTP</span><span>Export XLSX</span><span>FR / EN</span></div></dd></div>
-          <div><dt>Décision produit</dt><dd class="decision">J'ai retiré des fonctions (bouton « virement effectué », état intermédiaire, relances automatiques) quand l'organisateur les trouvait compliquées. Deux états seulement : en attente, payée. Un outil qu'il utilise seul vaut mieux qu'un outil complet.</dd></div>
-          <div><dt>Résultat</dt><dd>En production : les premières inscriptions réelles sont arrivées dès les premiers jours, via les liens diffusés par l'organisateur, et il tient le suivi lui-même.</dd></div>
-        </dl>
-      </div>
-    </article>
+    </a>
   </section>
 
   <section id="methode" aria-labelledby="t-m">
@@ -241,7 +267,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
 <div class="dark contact" id="contact">
   <div class="inner">
     <div class="rule" aria-hidden="true"></div>
-    <h2>Parlons de ce que vous voulez mettre en ligne.</h2>
+    <h2>Parlons des agendas à remplir.</h2>
     <p class="mail">stephane@wickra.pro</p>
     <div class="cta">
       <a class="btn primary" href="mailto:stephane@wickra.pro">Écrire à Stéphane</a>

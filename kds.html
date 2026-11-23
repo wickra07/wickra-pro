@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stéphane Wickra, GTM Engineer Outbound">
+<meta property="og:description" content="Je remplis des agendas. 71 000 emails B2B sur 3 clients, 213 démos décrochées pour OFFOLIO, et les outils pour automatiser le tout.">
+<meta property="og:image" content="https://wickra.pro/img/og.jpg">
+<meta property="og:url" content="https://wickra.pro/kds.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b1424">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1424'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='%232dd4bf' font-family='Arial' font-weight='700'%3ESW%3C/text%3E%3C/svg%3E">
+<title>KDS France, ce que j'ai construit · Stéphane Wickra</title>
+<meta name="description" content="GTM Engineer Outbound. Je remplis des agendas : campagnes B2B, enrichissement, automatisation avec Lemlist, Dropcontact, Make, n8n et Claude.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Concept : une page de studio. Héros sombre avec portrait, puis chaque projet montré en grand dans un cadre de navigateur, avec le besoin, le construit et le résultat à côté. Signature : le filet dégradé du CV. */
+:root{
+  --ink:#0b1424; --ink-2:#13203a; --paper:#f4f6f9; --surface:#ffffff; --fg:#0f1a2e; --muted:#58657a; --line:#dce1e8;
+  --accent:#0f9d8c; --accent-ink:#06756a; --accent-soft:#e1f4f1; --on-dark:#eef2f7; --on-dark-muted:#a9b6c8;
+  --grad:linear-gradient(90deg,#ff4d8d,#ff9a3c,#8b5cf6);
+  --f-display:"Space Grotesk",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0a111d; --surface:#111b2c; --fg:#e8edf4; --muted:#9aa8bb; --line:#223048; --accent:#2dd4bf; --accent-ink:#5eead4; --accent-soft:#0f2a2c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0a111d; --surface:#111b2c; --fg:#e8edf4; --muted:#9aa8bb; --line:#223048; --accent:#2dd4bf; --accent-ink:#5eead4; --accent-soft:#0f2a2c; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{margin:0;background:var(--paper);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.1;letter-spacing:-.02em}
+p{margin:0}
+a{color:var(--accent-ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.inner{max-width:1080px;margin:0 auto}
+.kicker{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
+.rule{height:3px;width:72px;border-radius:2px;background:var(--grad)}
+
+/* Nav + héros sombres, pleine largeur */
+.dark{background:var(--ink);color:var(--on-dark);margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
+nav .brand{font-family:var(--f-display);font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:-.01em}
+nav .links{display:flex;gap:22px;font-size:.92rem}
+nav .links a{color:var(--on-dark-muted);text-decoration:none}
+nav .links a:hover{color:var(--on-dark)}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center;padding-block:56px 84px}
+.hero h1{font-size:clamp(2.2rem,6.2vw,4rem);margin:18px 0 22px}
+.hero .sub{font-size:1.12rem;color:var(--on-dark-muted);max-width:56ch}
+.hero .sub strong{color:var(--on-dark);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;font-weight:600;font-size:.95rem;text-decoration:none;padding:12px 20px;border-radius:8px}
+.btn.primary{background:#2dd4bf;color:#04201d}
+.btn.ghost{border:1px solid #2c3d5a;color:var(--on-dark)}
+.btn:hover{filter:brightness(1.08)}
+.portrait{justify-self:center;position:relative;width:min(100%,320px)}
+.portrait::before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 200deg,#ff4d8d,#ff9a3c,#8b5cf6,#ff4d8d)}
+.portrait img{position:relative;display:block;width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;border:5px solid var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;border-top:1px solid #1f2f4b}
+.facts div{padding:22px 24px 26px 0;display:flex;flex-direction:column;gap:2px}
+.facts b{font-family:var(--f-display);font-size:1.9rem;font-weight:600;color:var(--on-dark)}
+.facts span{color:var(--on-dark-muted);font-size:.9rem}
+
+/* Sections claires */
+section{padding-block:84px 0}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:34px;max-width:62ch}
+.sec-head h2{font-size:clamp(1.7rem,4.4vw,2.5rem)}
+.sec-head p{color:var(--muted)}
+.project{display:flex;flex-direction:column;gap:36px}
+.project + .project{margin-top:84px}
+.shots{display:grid;gap:18px}
+.shots.two{grid-template-columns:minmax(0,1fr)}
+.frame{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 18px 50px -24px rgba(8,16,34,.45)}
+.bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.bar span{margin-left:10px;flex:1;min-width:0;font-family:var(--f-mono);font-size:.76rem;color:var(--muted);background:var(--paper);border-radius:6px;padding:3px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frame img{display:block;width:100%;height:auto}
+.cap{font-size:.85rem;color:var(--muted);margin-top:8px}
+.body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px 56px}
+.p-title{display:flex;flex-direction:column;gap:14px}
+.p-title h3{font-size:clamp(1.5rem,3.6vw,2.1rem)}
+.badge{align-self:flex-start;font-family:var(--f-mono);font-size:.74rem;color:var(--accent-ink);background:var(--accent-soft);border-radius:99px;padding:4px 12px}
+.p-title .go{font-weight:600;margin-top:6px}
+dl{margin:0;display:flex;flex-direction:column;gap:20px}
+dt{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+dd{margin:0}
+dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--f-mono);font-size:.8rem;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:3px 9px}
+.decision{border-left:3px solid var(--accent);padding:4px 0 4px 16px;color:var(--fg)}
+
+/* Campagnes */
+.camps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.camp{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px 24px 26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.camp header{display:flex;flex-direction:column;gap:4px}
+.camp h3{font-size:1.4rem}
+.camp .meta{font-family:var(--f-mono);font-size:.76rem;color:var(--muted)}
+.camp .big{font-family:var(--f-display);font-size:2.4rem;font-weight:600;line-height:1;color:var(--accent-ink)}
+.camp .big small{display:block;font-family:var(--f-body);font-size:.9rem;font-weight:500;color:var(--fg);margin-top:8px;line-height:1.4}
+.camp ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.camp.lead{border-color:var(--accent)}
+.stack{margin-top:34px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px 56px;align-items:start}
+.stack h3{font-size:1.3rem}
+.stack p{color:var(--muted);font-size:.95rem;margin-top:8px}
+.chips span.soon{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+
+/* Méthode */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;counter-reset:s}
+.steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.steps div::before{counter-increment:s;content:"0" counter(s);font-family:var(--f-mono);color:var(--accent-ink);font-size:.8rem}
+.steps p{color:var(--muted);font-size:.95rem}
+
+/* Franchise */
+.honest{background:var(--accent-soft);border-radius:14px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px}
+.honest h2{font-size:clamp(1.5rem,3.6vw,2.1rem)}
+.honest p + p{margin-top:12px}
+
+/* Contact */
+.contact{margin-top:96px;padding-block:72px 56px}
+.contact h2{font-size:clamp(1.8rem,5vw,3rem);max-width:20ch;margin:16px 0 22px}
+.contact .mail{font-family:var(--f-mono);font-size:1.05rem;color:var(--on-dark);user-select:all}
+.contact small{display:block;margin-top:44px;color:var(--on-dark-muted)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:34px;padding-block:36px 56px}
+  .portrait{justify-self:start;width:200px}
+  .body,.honest,.stack{grid-template-columns:1fr}
+  nav .links{display:none}
+  section{padding-top:60px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="dark">
+  <div class="inner">
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="index.html">Stéphane Wickra</a>
+      <div class="links"><a href="index.html#campagnes">Campagnes</a><a href="index.html#methode">Méthode</a><a href="#contact">Contact</a></div>
+    </nav>
+    <p style="padding-block:4px 28px"><a href="index.html" style="color:#5eead4;text-decoration:none">← Retour à l'accueil</a></p>
+  </div>
+</div>
+
+<div class="inner">
+  <section id="projets" aria-labelledby="t-proj">
+    <div class="sec-head">
+      <span class="kicker">Projet client · KDS France</span>
+      <h2 id="t-proj">Ce que j'ai construit pour Karaté-Do Shotokai France.</h2>
+      <p>Deux outils construits récemment avec Claude Code, de la prise de besoin à la mise en production. Chacun est en ligne, utilisé par de vraies personnes, et géré par son propriétaire sans moi.</p>
+    </div>
+
+    <article class="project" aria-labelledby="p1">
+      <div class="shots">
+        <figure class="frame" style="margin:0">
+          <div class="bar"><i></i><i></i><i></i><span>kds-france.com</span></div>
+          <img src="img/kds-site.jpg" alt="Page d'accueil du site Karaté-Do Shotokai France" width="1496" height="812" loading="lazy">
+        </figure>
+      </div>
+      <div class="body">
+        <div class="p-title">
+          <span class="badge">En ligne</span>
+          <h3 id="p1">Un site d'association, avec son back-office</h3>
+          <p>Remplacer un ancien site figé par un site vivant que l'association met à jour elle-même, avec un espace réservé aux membres.</p>
+          <a class="go" href="https://kds-france.com" target="_blank" rel="noopener">Voir le site en ligne</a>
+        </div>
+        <dl>
+          <div><dt>Avant</dt><dd>Un site en cadres sur un hébergement statique, un certificat HTTPS cassé et des centaines de liens externes fragiles vers les photos.</dd></div>
+          <div><dt>Construit</dt><dd><ul>
+            <li>12 pages en français et en anglais, dont les stages et les clubs sont lus depuis la base : toujours à jour.</li>
+            <li>Un back-office pour les stages, clubs, galeries, annuaire, et des accès par invitation pour les responsables de club.</li>
+            <li>Un espace membres protégé côté serveur, avec galeries, vidéos et annuaire PDF généré à la demande.</li>
+            <li>La reprise de l'archive de l'ancien site vers un stockage d'objets, avec un script de migration rejouable.</li>
+          </ul></dd></div>
+          <div><dt>Pile</dt><dd><div class="chips"><span>Node.js</span><span>Express</span><span>Turso (libSQL)</span><span>Cloudflare R2</span><span>URLs signées</span><span>Render</span><span>Déploiement auto sur Git</span></div></dd></div>
+          <div><dt>Résultat</dt><dd>En ligne sur un nom de domaine propre, en HTTPS, sur des offres d'hébergement gratuites. Modifier une date ou un club depuis l'admin se voit tout de suite, sans redéployer.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="project" aria-labelledby="p2">
+      <div class="shots two">
+        <figure class="frame" style="margin:0">
+          <div class="bar"><i></i><i></i><i></i><span>kds-france.com/stage-paris-2027</span></div>
+          <img src="img/form-choices.jpg" alt="Formulaire d'inscription au stage avec récapitulatif du montant" width="1496" height="812" loading="lazy">
+        </figure>
+      </div>
+      <div class="body">
+        <div class="p-title">
+          <span class="badge">En ligne, utilisé</span>
+          <h3 id="p2">Inscriptions à un stage : formulaire, paiement et suivi</h3>
+          <p>Un organisateur gérait un stage international dans des fichiers Excel. Il lui fallait un formulaire gratuit, sans compte tiers, avec le règlement, et surtout très simple à utiliser seul.</p>
+          <a class="go" href="https://kds-france.com/stage-paris-2027" target="_blank" rel="noopener">Voir le formulaire</a>
+        </div>
+        <dl>
+          <div><dt>Construit</dt><dd><ul>
+            <li>Deux formulaires, France et international, avec les forfaits d'hébergement et de repas de l'organisateur et un récapitulatif du montant en direct.</li>
+            <li>Une confirmation avec RIB, une fiche d'inscription en PDF générée côté serveur, des e-mails automatiques et une page « Retrouver mon inscription ».</li>
+            <li>Un suivi pour l'organisateur : filtres, statuts en attente ou payée, export Excel au format de ses propres feuilles, actualisation automatique.</li>
+            <li>Une adresse sur le site du club, avec une adresse e-mail publique qui redirige vers lui.</li>
+          </ul></dd></div>
+          <div><dt>Pile</dt><dd><div class="chips"><span>Cloudflare Workers</span><span>D1 (SQL)</span><span>Génération PDF</span><span>SMTP</span><span>Export XLSX</span><span>FR / EN</span></div></dd></div>
+          <div><dt>Décision produit</dt><dd class="decision">J'ai retiré des fonctions (bouton « virement effectué », état intermédiaire, relances automatiques) quand l'organisateur les trouvait compliquées. Deux états seulement : en attente, payée. Un outil qu'il utilise seul vaut mieux qu'un outil complet.</dd></div>
+          <div><dt>Résultat</dt><dd>En production : les premières inscriptions réelles sont arrivées dès les premiers jours, via les liens diffusés par l'organisateur, et il tient le suivi lui-même.</dd></div>
+        </dl>
+      </div>
+    </article>
+  </section>
+
+</div>
+
+<div class="dark contact" id="contact">
+  <div class="inner">
+    <div class="rule" aria-hidden="true"></div>
+    <h2>Parlons des agendas à remplir.</h2>
+    <p class="mail">stephane@wickra.pro</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:stephane@wickra.pro">Écrire à Stéphane</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/stephane-wickramarachchige" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <small>Île-de-France · CDI ou mission freelance · disponible immédiatement</small>
+  </div>
+</div>
+
+</body>
+</html>
