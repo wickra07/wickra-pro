@@ -118,7 +118,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
 @media (max-width:860px){.teaser{grid-template-columns:1fr}}
 
 /* Méthode */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;counter-reset:s}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;counter-reset:s}
 .steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .steps div::before{counter-increment:s;content:"0" counter(s);font-family:var(--f-mono);color:var(--accent-ink);font-size:.8rem}
 .steps p{color:var(--muted);font-size:.95rem}
@@ -249,6 +249,7 @@ dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
       <p>Peu importe que le moteur soit n8n, Make ou du code écrit avec Claude Code : ce qui compte, c'est que le besoin soit bien posé.</p>
     </div>
     <div class="steps">
+      <div><h3>Comprendre les besoins</h3><p>Écouter ceux qui vivent le problème, avant de proposer quoi que ce soit.</p></div>
       <div><h3>Cartographier</h3><p>Qui fait quoi, avec quelles données, où ça coince.</p></div>
       <div><h3>Fixer les règles</h3><p>Conditions, cas limites, et ce que le produit ne fait volontairement pas.</p></div>
       <div><h3>Articuler la donnée</h3><p>Une source de vérité claire, des exports qui collent aux habitudes de l'utilisateur.</p></div>
