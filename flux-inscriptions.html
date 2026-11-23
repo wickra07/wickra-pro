@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parcours d'inscription au stage · Stéphane Wickra</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Couloirs verticaux (un par acteur), le temps descend : une ligne = une action. */
+:root{--bg:#f7f4ee;--card:#ffffff;--ink:#141317;--muted:#6b6973;--line:rgba(20,19,23,.16);
+  --s:#9a7a3f;--s-soft:#f1e8d6;--j:#2f5d7c;--j-soft:#e4edf4;--p:#b3261e;--p-soft:#f8e7e5;--a:#2e7d4f;--a-soft:#e4f1e8;
+  --font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Manrope',system-ui,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#141317;--card:#1f1e24;--ink:#f3f0ea;--muted:#aaa7b1;--line:rgba(255,255,255,.18);
+  --s:#d6b36f;--s-soft:#36301f;--j:#86b6d8;--j-soft:#1f3140;--p:#ea7b72;--p-soft:#3b2422;--a:#74c495;--a-soft:#1f3a2a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141317;--card:#1f1e24;--ink:#f3f0ea;--muted:#aaa7b1;--line:rgba(255,255,255,.18);
+  --s:#d6b36f;--s-soft:#36301f;--j:#86b6d8;--j-soft:#1f3140;--p:#ea7b72;--p-soft:#3b2422;--a:#74c495;--a-soft:#1f3a2a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+.wrap{max-width:900px;margin:0 auto;display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.wrap>*,.side>*{min-width:0}
+h1{font-family:var(--font-display);font-weight:600;font-size:clamp(1.9rem,1.4rem+2vw,2.8rem);margin:0 0 6px;text-wrap:balance}
+h2{font-family:var(--font-display);font-weight:600;font-size:1.5rem;margin:0 0 4px}
+p{margin:0}
+.sub{color:var(--muted);max-width:68ch}
+.actors{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:.85rem}
+.actors span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:-1px;background:var(--c)}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 12px}
+.fig{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fig svg{display:block;height:auto;max-width:100%}
+.fig--main svg{min-width:760px}
+.fig--side svg{min-width:640px}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:10px;max-width:72ch}
+svg text{font-family:var(--font-body);fill:var(--ink)}
+.lane-bg{opacity:.07}
+.lS{fill:var(--s)}.lJ{fill:var(--j)}.lP{fill:var(--p)}.lA{fill:var(--a)}
+.hS{fill:var(--s-soft)}.hJ{fill:var(--j-soft)}.hP{fill:var(--p-soft)}.hA{fill:var(--a-soft)}
+.tS{fill:var(--s)}.tJ{fill:var(--j)}.tP{fill:var(--p)}.tA{fill:var(--a)}
+.box{fill:var(--card);stroke-width:1.5}
+.bS{stroke:var(--s)}.bJ{stroke:var(--j)}.bP{stroke:var(--p)}.bA{stroke:var(--a)}
+.recv{fill:var(--card);stroke-width:1.2;stroke-dasharray:4 3}
+.t{font-size:11.5px}.t.b{font-weight:700}.ts{font-size:10.5px;fill:var(--muted)}
+.hd{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.badge{font-size:11px;font-weight:700;fill:#fff}
+.flow{fill:none;stroke:currentColor;stroke-width:1.5}
+.mail{fill:none;stroke:currentColor;stroke-width:1.3;stroke-dasharray:5 4}
+.later{fill:none;stroke:currentColor;stroke-width:1.3;stroke-dasharray:1.5 4;stroke-linecap:round}
+.lbl{font-size:10.5px;paint-order:stroke;stroke:var(--card);stroke-width:4px;stroke-linejoin:round}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 18px;font-size:.84rem;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.legend svg{width:46px;height:18px;vertical-align:middle;margin-right:8px;overflow:visible}
+.side{display:grid;gap:16px}
+.backstage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.backstage ul{margin:8px 0 0;padding-left:18px;font-size:.9rem}
+.backstage li{margin:4px 0}
+code{font-size:.85em;background:var(--bg);padding:1px 5px;border-radius:5px}
+@media (max-width:600px){figure{padding:12px 12px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p style="margin-bottom:14px"><a href="kds.html" style="color:var(--j)">← Retour au projet KDS</a></p>
+    <h1>Inscriptions au stage de Paris 2027</h1>
+    <p class="sub">Qui fait quoi, dans l'ordre. Schéma conçu avec Claude pour cadrer le processus avant de construire l'outil. Quatre acteurs, un couloir chacun ; chaque case est une action que l'un d'eux fait. Les cases en pointillé indiquent qui reçoit un e-mail automatique.</p>
+    <div class="actors">
+      <span style="--c:var(--s)">Stéphane</span>
+      <span style="--c:var(--j)">L'organisateur</span>
+      <span style="--c:var(--p)">Le participant</span>
+      <span style="--c:var(--a)">Automatisation (formulaire, e-mails, redirection)</span>
+    </div>
+  </header>
+
+  <figure>
+    <div class="fig fig--main">
+    <svg viewBox="0 0 840 925" role="img" aria-label="Neuf actions dans l'ordre : Stéphane met le formulaire en ligne et envoie les liens à l'organisateur, l'organisateur les diffuse, le participant s'inscrit, l'automatisation confirme par e-mail avec copie à l'organisateur, le participant vire, l'organisateur pointe le virement, l'automatisation confirme la place, l'organisateur exporte et relance.">
+      <defs>
+        <marker id="arw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><polygon points="0,0 8,4 0,8" fill="currentColor"/></marker>
+      </defs>
+
+      <!-- fonds de couloirs -->
+      <rect class="lane-bg lS" x="16" y="52" width="196" height="862" rx="10"/>
+      <rect class="lane-bg lJ" x="220" y="52" width="196" height="862" rx="10"/>
+      <rect class="lane-bg lP" x="424" y="52" width="196" height="862" rx="10"/>
+      <rect class="lane-bg lA" x="628" y="52" width="196" height="862" rx="10"/>
+      <!-- en-têtes -->
+      <rect class="hS" x="16" y="14" width="196" height="36" rx="10"/><text class="hd tS" x="114" y="37" text-anchor="middle">Stéphane</text>
+      <rect class="hJ" x="220" y="14" width="196" height="36" rx="10"/><text class="hd tJ" x="318" y="37" text-anchor="middle">Organisateur</text>
+      <rect class="hP" x="424" y="14" width="196" height="36" rx="10"/><text class="hd tP" x="522" y="37" text-anchor="middle">Participant</text>
+      <rect class="hA" x="628" y="14" width="196" height="36" rx="10"/><text class="hd tA" x="726" y="37" text-anchor="middle">Automatisation</text>
+
+      <!-- 1 Stéphane -->
+      <rect class="box bS" x="22" y="70" width="184" height="70" rx="10"/>
+      <text class="t" x="32" y="89"><tspan class="b">Met en ligne le formulaire</tspan></text>
+      <text class="t" x="32" y="103">et le tableau de suivi</text>
+      <text class="t" x="32" y="117">sur kds-france.com,</text>
+      <text class="t" x="32" y="131">crée l'adresse inscriptions@</text>
+      <circle class="lS" cx="22" cy="70" r="11"/><text class="badge" x="22" y="74" text-anchor="middle">1</text>
+      <line class="flow" x1="114" y1="140" x2="114" y2="165" marker-end="url(#arw)"/>
+
+      <!-- 2 Stéphane -->
+      <rect class="box bS" x="22" y="166" width="184" height="70" rx="10"/>
+      <text class="t" x="32" y="185"><tspan class="b">Envoie à l'organisateur</tspan></text>
+      <text class="t" x="32" y="199">les 2 liens d'inscription</text>
+      <text class="t" x="32" y="213">et le mot de passe</text>
+      <text class="t" x="32" y="227">du tableau de suivi</text>
+      <circle class="lS" cx="22" cy="166" r="11"/><text class="badge" x="22" y="170" text-anchor="middle">2</text>
+      <path class="flow" d="M114 236 V249 H318 V261" marker-end="url(#arw)"/>
+      <text class="lbl" x="216" y="245" text-anchor="middle">mail du 15 novembre</text>
+
+      <!-- 3 l'organisateur -->
+      <rect class="box bJ" x="226" y="262" width="184" height="70" rx="10"/>
+      <text class="t" x="236" y="281"><tspan class="b">Diffuse les 2 liens</tspan></text>
+      <text class="t" x="236" y="295">aux clubs sur la feuille</text>
+      <text class="t" x="236" y="309">d'annonce : France</text>
+      <text class="t" x="236" y="323">et international</text>
+      <circle class="lJ" cx="226" cy="262" r="11"/><text class="badge" x="226" y="266" text-anchor="middle">3</text>
+      <path class="flow" d="M318 332 V345 H522 V357" marker-end="url(#arw)"/>
+      <text class="lbl" x="420" y="341" text-anchor="middle">lien reçu de son club</text>
+
+      <!-- 4 Participant -->
+      <rect class="box bP" x="430" y="358" width="184" height="70" rx="10"/>
+      <text class="t" x="440" y="377"><tspan class="b">S'inscrit</tspan></text>
+      <text class="t" x="440" y="391">nom, prénom, club, e-mail,</text>
+      <text class="t" x="440" y="405">chambre, repas, allergies,</text>
+      <text class="t" x="440" y="419">puis valide</text>
+      <circle class="lP" cx="430" cy="358" r="11"/><text class="badge" x="430" y="362" text-anchor="middle">4</text>
+      <path class="flow" d="M522 428 V441 H726 V453" marker-end="url(#arw)"/>
+      <text class="lbl" x="624" y="437" text-anchor="middle">formulaire validé</text>
+
+      <!-- 5 Automatisation -->
+      <rect class="box bA" x="634" y="454" width="184" height="70" rx="10"/>
+      <text class="t" x="644" y="473"><tspan class="b">Enregistre et confirme</tspan></text>
+      <text class="t" x="644" y="487">calcule le total, attribue</text>
+      <text class="t" x="644" y="501">la référence SP27-0xx,</text>
+      <text class="t" x="644" y="515">envoie e-mail 1 et la copie</text>
+      <circle class="lA" cx="634" cy="454" r="11"/><text class="badge" x="634" y="458" text-anchor="middle">5</text>
+      <!-- réception participant -->
+      <line class="mail" x1="634" y1="477" x2="616" y2="477" marker-end="url(#arw)"/>
+      <rect class="recv bP" x="430" y="460" width="184" height="34" rx="8"/>
+      <text class="ts" x="440" y="474">Reçoit l'e-mail 1 : confirmation,</text>
+      <text class="ts" x="440" y="487">fiche PDF avec le RIB</text>
+      <!-- réception l'organisateur -->
+      <line class="mail" x1="634" y1="512" x2="412" y2="512" marker-end="url(#arw)"/>
+      <rect class="recv bJ" x="226" y="495" width="184" height="34" rx="8"/>
+      <text class="ts" x="236" y="509">Reçoit la copie</text>
+      <text class="ts" x="236" y="522">« Nouvelle inscription »</text>
+      <line class="flow" x1="522" y1="494" x2="522" y2="549" marker-end="url(#arw)"/>
+
+      <!-- 6 Participant -->
+      <rect class="box bP" x="430" y="550" width="184" height="70" rx="10"/>
+      <text class="t" x="440" y="569"><tspan class="b">Fait le virement</tspan></text>
+      <text class="t" x="440" y="583">tout de suite après l'inscription,</text>
+      <text class="t" x="440" y="597">avec le libellé « SP27-0xx NOM ».</text>
+      <text class="t" x="440" y="611">Rien d'autre à faire.</text>
+      <circle class="lP" cx="430" cy="550" r="11"/><text class="badge" x="430" y="554" text-anchor="middle">6</text>
+      <path class="flow" d="M522 620 V633 H318 V645" marker-end="url(#arw)"/>
+      <text class="lbl" x="420" y="629" text-anchor="middle">virement vu sur le relevé</text>
+
+      <!-- 7 l'organisateur -->
+      <rect class="box bJ" x="226" y="646" width="184" height="70" rx="10"/>
+      <text class="t" x="236" y="665"><tspan class="b">Pointe le virement</tspan></text>
+      <text class="t" x="236" y="679">vérifie sur le relevé, ouvre</text>
+      <text class="t" x="236" y="693">le tableau de suivi, cherche le</text>
+      <text class="t" x="236" y="707">nom et clique « Virement reçu »</text>
+      <circle class="lJ" cx="226" cy="646" r="11"/><text class="badge" x="226" y="650" text-anchor="middle">7</text>
+      <path class="flow" d="M318 716 V729 H726 V741" marker-end="url(#arw)"/>
+      <text class="lbl" x="522" y="725" text-anchor="middle">clic « Virement reçu »</text>
+      <path class="later" d="M300 716 V837" marker-end="url(#arw)"/>
+      <text class="lbl ts" x="292" y="790" text-anchor="end">quand il veut</text>
+
+      <!-- 8 Automatisation -->
+      <rect class="box bA" x="634" y="742" width="184" height="70" rx="10"/>
+      <text class="t" x="644" y="761"><tspan class="b">Confirme la place</tspan></text>
+      <text class="t" x="644" y="775">passe l'inscription</text>
+      <text class="t" x="644" y="789">en « payée » et envoie</text>
+      <text class="t" x="644" y="803">l'e-mail 2 au participant</text>
+      <circle class="lA" cx="634" cy="742" r="11"/><text class="badge" x="634" y="746" text-anchor="middle">8</text>
+      <line class="mail" x1="634" y1="777" x2="616" y2="777" marker-end="url(#arw)"/>
+      <rect class="recv bP" x="430" y="760" width="184" height="34" rx="8"/>
+      <text class="ts" x="440" y="774">Reçoit l'e-mail 2 :</text>
+      <text class="ts" x="440" y="787">« votre place est confirmée »</text>
+
+      <!-- 9 l'organisateur -->
+      <rect class="box bJ" x="226" y="838" width="184" height="70" rx="10"/>
+      <text class="t" x="236" y="857"><tspan class="b">Exporte et relance</tspan></text>
+      <text class="t" x="236" y="871">Excel pour le CREPS</text>
+      <text class="t" x="236" y="885">chambres, repas, allergies,</text>
+      <text class="t" x="236" y="899">relance les « en attente »</text>
+      <circle class="lJ" cx="226" cy="838" r="11"/><text class="badge" x="226" y="842" text-anchor="middle">9</text>
+    </svg>
+    </div>
+    <figcaption>Le parcours nominal, de la mise en ligne à la confirmation de place. Deux e-mails par participant, une copie par inscription pour l'organisateur, aucun doublon. Le règlement se fait au moment de l'inscription, sans date limite : l'inscription ne compte qu'à réception du virement. Le participant n'a pas à prévenir l'organisateur : celui-ci voit le virement sur le relevé et confirme la place. Après l'étape 2, Stéphane n'intervient plus.</figcaption>
+    <div class="legend">
+      <span><svg viewBox="0 0 46 18"><rect class="box bJ" x="1" y="1" width="44" height="16" rx="5"/></svg>Action faite par l'acteur du couloir</span>
+      <span><svg viewBox="0 0 46 18"><rect class="recv bP" x="1" y="1" width="44" height="16" rx="5"/></svg>Reçoit un e-mail automatique</span>
+      <span><svg viewBox="0 0 46 18"><line class="flow" x1="0" y1="9" x2="44" y2="9" marker-end="url(#arw)"/></svg>Déclenche l'étape suivante</span>
+      <span><svg viewBox="0 0 46 18"><line class="mail" x1="0" y1="9" x2="44" y2="9" marker-end="url(#arw)"/></svg>E-mail automatique</span>
+    </div>
+  </figure>
+
+  <section class="side">
+    <h2>Deux cas à côté du parcours</h2>
+
+    <figure>
+      <div class="fig fig--side">
+      <svg viewBox="0 0 840 150" role="img" aria-label="Le participant écrit à inscriptions@kds-france.com, OVH redirige, L'organisateur reçoit et répond, Stéphane reçoit aussi une copie.">
+        <rect class="box bP" x="16" y="50" width="220" height="50" rx="10"/>
+        <text class="t" x="26" y="70"><tspan class="b">Écrit à</tspan></text>
+        <text class="t" x="26" y="86">inscriptions@kds-france.com</text>
+        <line class="mail" x1="236" y1="75" x2="304" y2="75" marker-end="url(#arw)"/>
+        <text class="lbl" x="270" y="68" text-anchor="middle">e-mail</text>
+        <rect class="box bA" x="306" y="50" width="214" height="50" rx="10"/>
+        <text class="t" x="316" y="70"><tspan class="b">Redirige (OVH)</tspan></text>
+        <text class="t" x="316" y="86">aucune boîte à relever</text>
+        <path class="mail" d="M520 75 H556 V41 H598" marker-end="url(#arw)"/>
+        <path class="mail" d="M556 75 V109 H598" marker-end="url(#arw)"/>
+        <rect class="box bJ" x="600" y="16" width="224" height="50" rx="10"/>
+        <text class="t" x="610" y="36"><tspan class="b">L'organisateur reçoit</tspan></text>
+        <text class="t" x="610" y="52">et répond au participant</text>
+        <rect class="recv bS" x="600" y="84" width="224" height="50" rx="10"/>
+        <text class="t" x="610" y="104"><tspan class="b">Stéphane reçoit aussi</tspan></text>
+        <text class="t" x="610" y="120">en copie, pour garder un œil</text>
+      </svg>
+      </div>
+      <figcaption>Une question en cours de route. Même chemin quand le participant clique « Répondre » sur l'e-mail 1 ou 2 : la réponse part vers inscriptions@kds-france.com. Si quelqu'un d'autre reprend les inscriptions un jour, on change la destination chez OVH, l'adresse publique ne bouge pas.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="fig fig--side">
+      <svg viewBox="0 0 840 110" role="img" aria-label="Le participant saisit son e-mail sur Retrouver mon inscription, l'automatisation réaffiche son récapitulatif, le RIB et la fiche PDF, sans créer de nouvelle inscription.">
+        <rect class="box bP" x="16" y="30" width="300" height="50" rx="10"/>
+        <text class="t" x="26" y="50"><tspan class="b">A perdu sa page ou son e-mail</tspan></text>
+        <text class="t" x="26" y="66">saisit son e-mail sur « Retrouver mon inscription »</text>
+        <line class="flow" x1="316" y1="55" x2="384" y2="55" marker-end="url(#arw)"/>
+        <rect class="box bA" x="386" y="30" width="236" height="50" rx="10"/>
+        <text class="t" x="396" y="50"><tspan class="b">Réaffiche sa fiche</tspan></text>
+        <text class="t" x="396" y="66">récapitulatif, RIB, fiche PDF</text>
+        <text class="ts" x="636" y="59">Aucune nouvelle inscription créée.</text>
+      </svg>
+      </div>
+      <figcaption>Le participant qui a tout fermé retrouve ses informations seul, sans écrire à personne et sans risque de s'inscrire deux fois.</figcaption>
+    </figure>
+  </section>
+</div>
+
+</body></html>
