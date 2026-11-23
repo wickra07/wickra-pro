@@ -375,7 +375,7 @@ svg.flow .e-resp line{stroke:currentColor;stroke-width:1.3;stroke-dasharray:5 4}
         <p>Tant que le contact ne répond pas, la séquence avance. Dès qu'il répond, elle s'arrête et la réponse est traitée à la main.</p>
       </div>
       <div class="flow-wrap">
-      <svg class="flow" viewBox="0 0 760 266" role="img" aria-label="Email 1 à J+0, relance 1 à J+4 puis relance 2 à J+8 tant qu'il n'y a pas de réponse, puis fin. Toute réponse arrête la séquence et mène à une démo, une mise en relation ou un refus.">
+      <svg class="flow" viewBox="0 0 760 266" role="img" aria-label="Email 1 à J+0, relance 1 à J+4 puis relance 2 à J+8 tant qu'il n'y a pas de réponse, puis fin. Toute réponse arrête la séquence et mène à une démo ou à un refus.">
         <defs><marker id="fa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><polygon points="0,0 8,4 0,8" fill="currentColor"/></marker></defs>
         <g class="n-main">
           <rect x="10" y="18" width="140" height="66" rx="10"/><text x="24" y="42" class="t-b">J+0 · Email 1</text><text x="24" y="60" class="t-s">accroche, preuves,</text><text x="24" y="74" class="t-s">3 créneaux</text>
@@ -393,17 +393,16 @@ svg.flow .e-resp line{stroke:currentColor;stroke-width:1.3;stroke-dasharray:5 4}
         </g>
         <text x="88" y="110" class="t-l">réponse</text><text x="333" y="110" class="t-l">réponse</text><text x="578" y="110" class="t-l">réponse</text>
         <rect class="n-resp" x="10" y="130" width="630" height="34" rx="10"/><text x="325" y="152" class="t-b" text-anchor="middle">La séquence s'arrête, je traite la réponse</text>
-        <g class="e-out"><line x1="110" y1="164" x2="110" y2="202" marker-end="url(#fa)"/><line x1="325" y1="164" x2="325" y2="202" marker-end="url(#fa)"/><line x1="540" y1="164" x2="540" y2="202" marker-end="url(#fa)"/></g>
-        <rect class="n-ok" x="10" y="204" width="200" height="52" rx="10"/><text x="24" y="226" class="t-b">Démo calée</text><text x="24" y="244" class="t-s">sur l'un des créneaux proposés</text>
-        <rect class="n-mid" x="225" y="204" width="200" height="52" rx="10"/><text x="239" y="226" class="t-b">Mise en relation</text><text x="239" y="244" class="t-s">vers le bon interlocuteur</text>
-        <rect class="n-ko" x="440" y="204" width="200" height="52" rx="10"/><text x="454" y="226" class="t-b">KO</text><text x="454" y="244" class="t-s">pas intéressé, sorti de la liste</text>
+        <g class="e-out"><line x1="160" y1="164" x2="160" y2="202" marker-end="url(#fa)"/><line x1="490" y1="164" x2="490" y2="202" marker-end="url(#fa)"/></g>
+        <rect class="n-ok" x="10" y="204" width="300" height="52" rx="10"/><text x="24" y="226" class="t-b">Démo calée</text><text x="24" y="244" class="t-s">sur l'un des créneaux proposés</text>
+        <rect class="n-ko" x="340" y="204" width="300" height="52" rx="10"/><text x="354" y="226" class="t-b">KO</text><text x="354" y="244" class="t-s">pas intéressé, sorti de la liste</text>
       </svg>
       </div>
       <ol class="flow-list">
         <li><b>J+0 · Email 1</b> : accroche, preuves, 3 créneaux.</li>
         <li><b>J+4 · Relance 1</b>, si pas de réponse : même fil, 3 autres créneaux.</li>
         <li><b>J+8 · Relance 2</b>, si toujours rien : même fil, demande de redirection. Puis fin.</li>
-        <li class="fl-out"><b>Dès qu'il y a une réponse</b>, la séquence s'arrête : démo calée, mise en relation vers le bon interlocuteur, ou KO.</li>
+        <li class="fl-out"><b>Dès qu'il y a une réponse</b>, la séquence s'arrête : démo calée ou KO.</li>
       </ol>
     </div>
     <div class="forecast" aria-labelledby="t-fc">
