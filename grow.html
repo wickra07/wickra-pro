@@ -189,6 +189,11 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
 .reco .ava{grid-row:1/4;width:56px;height:56px;border-radius:50%;object-fit:cover}
 .reco figcaption > :not(.ava){grid-column:2}
 .reco .meta{font-family:var(--f-mono);font-size:.74rem}
+.olist{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.li-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.li-stats div{display:flex;flex-direction:column}
+.li-stats b{font-family:var(--f-display);font-size:1.35rem;font-weight:600;color:var(--accent-ink);line-height:1.1}
+.li-stats span{font-size:.8rem;color:var(--muted)}
 .prac{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 .prac div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px}
 .prac dt{margin:0}
@@ -283,7 +288,18 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
       <article>
         <span class="meta">2024 – 2025 · côté client</span>
         <h3>OFFOLIO</h3>
-        <p>L'outbound de l'entreprise sur Lemlist : choix des cibles, planning d'envoi, séquences, registre des leads et suivi des démos.</p>
+        <ul class="olist">
+          <li><b>Outbound</b> sur Lemlist : choix des cibles, planning d'envoi, séquences, registre des leads et suivi des démos.</li>
+          <li><b>Création d'événements.</b></li>
+          <li><b>RevOps.</b></li>
+          <li><b>LinkedIn</b>, comme levier de preuve sociale, d'autorité, de confiance et de proximité : 4 comptes animés en parallèle, avec un arc narratif.</li>
+        </ul>
+        <div class="li-stats">
+          <div><b>122</b><span>posts</span></div>
+          <div><b>≈ 170 000</b><span>impressions</span></div>
+          <div><b>3 124</b><span>réactions</span></div>
+        </div>
+        <p class="cap" style="margin:0">Juillet 2023 – juillet 2024. Les posts du CEO faisaient ≈ 2 070 impressions en moyenne, contre ≈ 650 pour la page entreprise.</p>
       </article>
     </div>
   </section>
