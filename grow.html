@@ -381,15 +381,14 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
       <div class="st meet c12" style="grid-row:2"><span class="who">Moi · Client</span><b><span class="n">01</span>Réunion de lancement <span class="deck">Slide deck</span></b>Comprendre ses besoins, son offre et les clients qu'il veut rencontrer.</div>
       <div class="st c1" style="grid-row:3"><span class="who">Moi</span><b><span class="n">02</span>Cartographier les cibles</b>Le potentiel de chaque cible et le planning d'envoi, comme chez OFFOLIO.</div>
       <div class="st c1" style="grid-row:4"><span class="who">Moi</span><b><span class="n">03</span>Mapper les processus</b>Toutes les interactions, avec le client comme avec les prospects, pour les fluidifier au maximum et comprendre ce qu'on construit.</div>
-      <div class="st c1" style="grid-row:5"><span class="who">Moi</span><b><span class="n">04</span>Écrire les séquences</b>Préparer et enrichir les listes, écrire les messages de chaque étape.</div>
-      <div class="st meet c12" style="grid-row:6"><span class="who">Moi · Client</span><b><span class="n">05</span>Validation <span class="deck">Slide deck</span></b>Cibles, messages et planning validés ensemble avant le premier envoi.</div>
-      <div class="st side c1" style="grid-row:7"><span class="who">Moi · en marge</span><b><span class="n">06</span>Corrections</b>J'intègre les retours du client, en général par mail.</div>
-      <div class="st side c2" style="grid-row:8"><span class="who">Client · en marge</span><b><span class="n">07</span>Validation client</b>Le client valide la version corrigée, en général par mail.</div>
-      <div class="st c1" style="grid-row:9"><span class="who">Moi</span><b><span class="n">08</span>Lancement des séquences</b>Les envois partent, étape par étape.</div>
-      <div class="st c3" style="grid-row:10"><span class="who">Prospects</span><b><span class="n">09</span>Réponse</b>Le prospect répond, ou passe à l'étape suivante de la séquence.</div>
-      <div class="st c1" style="grid-row:11"><span class="who">Moi</span><b><span class="n">10</span>Registre des leads</b>Chaque réponse est notée et suivie jusqu'à la démo, ou au KO.</div>
-      <div class="st meet c23" style="grid-row:12"><span class="who">Client · Prospects</span><b><span class="n">11</span>Démo</b>Calée dans l'agenda du client, sur un créneau proposé ou une autre date.</div>
-      <div class="st meet loop c12" style="grid-row:13"><span class="who">Moi · Client</span><b><span class="n">12</span>Point régulier sur les chiffres <span class="deck">Slide deck</span></b>Si une campagne ne décolle pas, je définis une nouvelle approche et je la propose au client. On repart à l'étape 03 ou 04, selon le cas.</div>
+      <div class="st meet c12" style="grid-row:5"><span class="who">Moi · Client</span><b><span class="n">04</span>Validation <span class="deck">Slide deck</span></b>Cibles, messages et planning validés ensemble avant le premier envoi.</div>
+      <div class="st side c1" style="grid-row:6"><span class="who">Moi · en marge</span><b><span class="n">05</span>Corrections</b>J'intègre les retours du client, en général par mail.</div>
+      <div class="st side c2" style="grid-row:7"><span class="who">Client · en marge</span><b><span class="n">06</span>Validation client</b>Le client valide la version corrigée, en général par mail.</div>
+      <div class="st c1" style="grid-row:8"><span class="who">Moi</span><b><span class="n">07</span>Lancement des séquences</b>Les envois partent, étape par étape.</div>
+      <div class="st c3" style="grid-row:9"><span class="who">Prospects</span><b><span class="n">08</span>Réponse</b>Le prospect répond, ou passe à l'étape suivante de la séquence.</div>
+      <div class="st c1" style="grid-row:10"><span class="who">Moi</span><b><span class="n">09</span>Registre des leads</b>Chaque réponse est notée et suivie jusqu'à la démo, ou au KO.</div>
+      <div class="st meet c23" style="grid-row:11"><span class="who">Client · Prospects</span><b><span class="n">10</span>Démo</b>Calée dans l'agenda du client, sur un créneau proposé ou une autre date.</div>
+      <div class="st meet loop c12" style="grid-row:12"><span class="who">Moi · Client</span><b><span class="n">11</span>Point régulier sur les chiffres <span class="deck">Slide deck</span></b>Si une campagne ne décolle pas, je définis une nouvelle approche et je la propose au client. On repart à l'étape 03.</div>
     </div>
     <div class="legend"><span><i></i>Mon travail</span><span><i class="m"></i>Rendez-vous partagé</span><span><i class="sd"></i>En marge, par mail</span><span><i class="l"></i>Boucle d'ajustement</span></div>
 
@@ -471,7 +470,7 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
       var d=x1===x2?'M'+x1+' '+y1+'V'+y2:'M'+x1+' '+y1+'V'+ym+'H'+x2+'V'+y2;
       h+='<path d="'+d+'" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#ah)"/>';
     }
-    var L=b[b.length-1],T3=b[2],T4=b[3],x=Math.min(L.l,T3.l,T4.l)-(window.innerWidth<=640?9:7),yL=(L.t+L.b)/2,y3=(T3.t+T3.b)/2,y4=(T4.t+T4.b)/2;
+    var L=b[b.length-1],T3=b[2],x=Math.min(L.l,T3.l)-(window.innerWidth<=640?9:7),yL=(L.t+L.b)/2,y3=(T3.t+T3.b)/2;
     h+='<path d="M'+L.l+' '+yL+'H'+x+'V'+y3+'H'+(T3.l-2)+'" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/>';
     svg.innerHTML=h;
   }
