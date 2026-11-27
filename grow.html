@@ -189,6 +189,12 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
 .reco .ava{grid-row:1/4;width:56px;height:56px;border-radius:50%;object-fit:cover}
 .reco figcaption > :not(.ava){grid-column:2}
 .reco .meta{font-family:var(--f-mono);font-size:.74rem}
+.edu{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
+.edu ul{margin:8px 0 0;padding-left:1.1rem;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.org{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.org article{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.org h3{font-size:1.1rem}
+.org p{font-size:.95rem}
 .olist{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
 .li-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line);padding-top:12px}
 .st-lbl{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
@@ -321,6 +327,15 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
         <p class="cap" style="margin:0">Les posts du CEO faisaient ≈ 2 070 impressions en moyenne, contre ≈ 650 pour la page entreprise.</p>
       </article>
     </div>
+    <div class="edu">
+      <span class="st-lbl">Formation</span>
+      <ul>
+        <li>Bootcamp growth intensif de 3 mois · Rocket School, Paris · 2020</li>
+        <li>Piscine · École 42 · 2019</li>
+        <li>HTML5, CSS3, PHP et JavaScript, en autodidacte</li>
+        <li>Bac scientifique · Lycée Saint-André · 2012</li>
+      </ul>
+    </div>
   </section>
 
   <section id="client" aria-labelledby="t-cl">
@@ -375,7 +390,8 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
     <div class="two-col" style="grid-template-columns:minmax(0,1fr);max-width:720px">
       <div class="card">
         <h3>Pourquoi GROW</h3>
-        <p>GROW mesure ses missions comme je mesure mon travail : en rendez-vous et en chiffre d'affaires, pas en volume d'envois. Et j'ai envie de me développer dans ce métier.</p>
+        <p>GROW mesure ses missions comme je mesure mon travail : en rendez-vous et en chiffre d'affaires, pas en volume d'envois.</p>
+        <p>J'ai envie d'enchaîner les clients, de leur monter des systèmes de A à Z et de monter en compétences à chaque mission.</p>
         <blockquote>« Le seul critère de réussite est le chiffre d'affaires généré. » <br>grow-ps.com</blockquote>
       </div>
     </div>
@@ -391,6 +407,18 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
       <div><dt>Lieu</dt><p>Île-de-France.</p></div>
       <div><dt>Langue</dt><p>Surtout le français.</p></div>
       <div><dt>Rémunération</dt><p>La fourchette de l'annonce, 40–50 K€, me convient.</p></div>
+    </div>
+  </section>
+
+  <section id="gens" aria-labelledby="t-g">
+    <div class="sec-head">
+      <span class="kicker">Organiser les gens</span>
+      <h2 id="t-g">Faire avancer les gens ensemble, c'est ce qui me sert partout.</h2>
+    </div>
+    <div class="org">
+      <article><h3>Sur le terrain</h3><p>Chez Mahola, j'encadrais des équipes de 10 à 20 hôtes et hôtesses et je coordonnais jusqu'à 10 vestiaires sur des salons comme Maison &amp; Objet.</p></article>
+      <article><h3>Avec un client</h3><p>Un slide deck pour chaque réunion, les validations par mail et un point régulier sur les chiffres. Chacun sait où on en est et ce qu'on attend de lui.</p></article>
+      <article><h3>Sur un projet à plusieurs</h3><p>Chez OFFOLIO, 4 comptes LinkedIn en parallèle autour d'un même arc narratif.</p></article>
     </div>
   </section>
 
