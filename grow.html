@@ -190,7 +190,11 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
 .reco figcaption > :not(.ava){grid-column:2}
 .reco .meta{font-family:var(--f-mono);font-size:.74rem}
 .edu{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 22px}
-.edu ul{margin:8px 0 0;padding-left:1.1rem;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.edu ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.edu li{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.edu .dip b{font-family:var(--f-display);font-weight:600;color:var(--accent-ink)}
+.edu .yr{font-family:var(--f-mono);font-size:.76rem;padding:2px 8px;border-radius:999px;border:1px solid var(--accent-ink);color:var(--accent-ink);min-width:3.2em;text-align:center}
+.edu .self{color:var(--muted);padding-top:6px;border-top:1px solid var(--line)}
 .org{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
 .org article{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .org h3{font-size:1.1rem}
@@ -330,10 +334,10 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
     <div class="edu">
       <span class="st-lbl">Formation</span>
       <ul>
-        <li>Bootcamp growth intensif de 3 mois · Rocket School, Paris · 2020</li>
-        <li>Piscine · École 42 · 2019</li>
-        <li>HTML5, CSS3, PHP et JavaScript, en autodidacte</li>
-        <li>Bac scientifique · Lycée Saint-André · 2012</li>
+        <li class="dip"><span class="yr">2012</span><b>Bac scientifique</b></li>
+        <li class="dip"><span class="yr">2019</span><b>Piscine · École 42</b></li>
+        <li class="dip"><span class="yr">2020</span><b>Bootcamp growth intensif de 3 mois · Rocket School, Paris</b></li>
+        <li class="self">HTML5, CSS3, PHP et JavaScript, en autodidacte</li>
       </ul>
     </div>
   </section>
