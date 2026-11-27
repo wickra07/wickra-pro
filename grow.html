@@ -473,7 +473,6 @@ table.t td:first-child{font-weight:600;white-space:nowrap}
     }
     var L=b[b.length-1],T3=b[2],T4=b[3],x=Math.min(L.l,T3.l,T4.l)-(window.innerWidth<=640?9:7),yL=(L.t+L.b)/2,y3=(T3.t+T3.b)/2,y4=(T4.t+T4.b)/2;
     h+='<path d="M'+L.l+' '+yL+'H'+x+'V'+y3+'H'+(T3.l-2)+'" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/>';
-    h+='<path d="M'+x+' '+y4+'H'+(T4.l-2)+'" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ah)"/>';
     svg.innerHTML=h;
   }
   draw(); window.addEventListener('resize',draw); if(document.fonts) document.fonts.ready.then(draw); window.addEventListener('load',draw);
