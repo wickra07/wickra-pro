@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b1424">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1424'/%3E%3Ctext x='32' y='43' font-size='34' text-anchor='middle' fill='%232dd4bf' font-family='Arial' font-weight='700'%3ESW%3C/text%3E%3C/svg%3E">
+<title>Pour Alexandre, GROW · Stéphane Wickra</title>
+<meta name="description" content="Parcours, chiffres, outils et façon de travailler de Stéphane Wickra, préparés pour GROW.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Concept : une page de studio. Héros sombre avec portrait, puis chaque projet montré en grand dans un cadre de navigateur, avec le besoin, le construit et le résultat à côté. Signature : le filet dégradé du CV. */
+:root{
+  --ink:#0b1424; --ink-2:#13203a; --paper:#f4f6f9; --surface:#ffffff; --fg:#0f1a2e; --muted:#58657a; --line:#dce1e8;
+  --accent:#0f9d8c; --accent-ink:#06756a; --accent-soft:#e1f4f1; --on-dark:#eef2f7; --on-dark-muted:#a9b6c8;
+  --grad:linear-gradient(90deg,#ff4d8d,#ff9a3c,#8b5cf6);
+  --f-display:"Space Grotesk",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0a111d; --surface:#111b2c; --fg:#e8edf4; --muted:#9aa8bb; --line:#223048; --accent:#2dd4bf; --accent-ink:#5eead4; --accent-soft:#0f2a2c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0a111d; --surface:#111b2c; --fg:#e8edf4; --muted:#9aa8bb; --line:#223048; --accent:#2dd4bf; --accent-ink:#5eead4; --accent-soft:#0f2a2c; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{margin:0;background:var(--paper);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.1;letter-spacing:-.02em}
+p{margin:0}
+a{color:var(--accent-ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.inner{max-width:1080px;margin:0 auto}
+.kicker{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink)}
+.rule{height:3px;width:72px;border-radius:2px;background:var(--grad)}
+
+/* Nav + héros sombres, pleine largeur */
+.dark{background:var(--ink);color:var(--on-dark);margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
+nav .brand{font-family:var(--f-display);font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:-.01em}
+nav .links{display:flex;gap:22px;font-size:.92rem}
+nav .links a{color:var(--on-dark-muted);text-decoration:none}
+nav .links a:hover{color:var(--on-dark)}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center;padding-block:56px 84px}
+.hero h1{font-size:clamp(2.2rem,6.2vw,4rem);margin:18px 0 22px}
+.hero .sub{font-size:1.12rem;color:var(--on-dark-muted);max-width:56ch}
+.hero .sub strong{color:var(--on-dark);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;font-weight:600;font-size:.95rem;text-decoration:none;padding:12px 20px;border-radius:8px}
+.btn.primary{background:#2dd4bf;color:#04201d}
+.btn.ghost{border:1px solid #2c3d5a;color:var(--on-dark)}
+.btn:hover{filter:brightness(1.08)}
+.portrait{justify-self:center;position:relative;width:min(100%,320px)}
+.portrait::before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 200deg,#ff4d8d,#ff9a3c,#8b5cf6,#ff4d8d)}
+.portrait img{position:relative;display:block;width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;border:5px solid var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;border-top:1px solid #1f2f4b}
+.facts div{padding:22px 24px 26px 0;display:flex;flex-direction:column;gap:2px}
+.facts b{font-family:var(--f-display);font-size:1.9rem;font-weight:600;color:var(--on-dark)}
+.facts span{color:var(--on-dark-muted);font-size:.9rem}
+
+/* Sections claires */
+section{padding-block:84px 0}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:34px;max-width:62ch}
+.sec-head h2{font-size:clamp(1.7rem,4.4vw,2.5rem)}
+.sec-head p{color:var(--muted)}
+.project{display:flex;flex-direction:column;gap:36px}
+.project + .project{margin-top:84px}
+.shots{display:grid;gap:18px}
+.shots.two{grid-template-columns:minmax(0,1fr)}
+.frame{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 18px 50px -24px rgba(8,16,34,.45)}
+.bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar i{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.bar span{margin-left:10px;flex:1;min-width:0;font-family:var(--f-mono);font-size:.76rem;color:var(--muted);background:var(--paper);border-radius:6px;padding:3px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frame img{display:block;width:100%;height:auto}
+.cap{font-size:.85rem;color:var(--muted);margin-top:8px}
+.body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px 56px}
+.p-title{display:flex;flex-direction:column;gap:14px}
+.p-title h3{font-size:clamp(1.5rem,3.6vw,2.1rem)}
+.badge{align-self:flex-start;font-family:var(--f-mono);font-size:.74rem;color:var(--accent-ink);background:var(--accent-soft);border-radius:99px;padding:4px 12px}
+.p-title .go{font-weight:600;margin-top:6px}
+dl{margin:0;display:flex;flex-direction:column;gap:20px}
+dt{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+dd{margin:0}
+dd ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:7px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--f-mono);font-size:.8rem;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:3px 9px}
+.decision{border-left:3px solid var(--accent);padding:4px 0 4px 16px;color:var(--fg)}
+
+/* Campagnes */
+.camps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.camp{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px 24px 26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.camp header{display:flex;flex-direction:column;gap:4px}
+.camp h3{font-size:1.4rem}
+.camp .meta{font-family:var(--f-mono);font-size:.76rem;color:var(--muted)}
+.camp .big{font-family:var(--f-display);font-size:2.4rem;font-weight:600;line-height:1;color:var(--accent-ink)}
+.camp .big small{display:block;font-family:var(--f-body);font-size:.9rem;font-weight:500;color:var(--fg);margin-top:8px;line-height:1.4}
+.camp ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.camp.lead{border-color:var(--accent)}
+.stack{margin-top:34px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px 56px;align-items:start}
+.stack h3{font-size:1.3rem}
+.stack p{color:var(--muted);font-size:.95rem;margin-top:8px}
+.chips span.soon{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+
+/* Méthode */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;counter-reset:s}
+.steps div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.steps div::before{counter-increment:s;content:"0" counter(s);font-family:var(--f-mono);color:var(--accent-ink);font-size:.8rem}
+.steps p{color:var(--muted);font-size:.95rem}
+
+/* Franchise */
+.honest{background:var(--accent-soft);border-radius:14px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px}
+.honest h2{font-size:clamp(1.5rem,3.6vw,2.1rem)}
+.honest p + p{margin-top:12px}
+
+/* Contact */
+.contact{margin-top:96px;padding-block:72px 56px}
+.contact h2{font-size:clamp(1.8rem,5vw,3rem);max-width:20ch;margin:16px 0 22px}
+.contact .mail{font-family:var(--f-mono);font-size:1.05rem;color:var(--on-dark);user-select:all}
+.contact small{display:block;margin-top:44px;color:var(--on-dark-muted)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:34px;padding-block:36px 56px}
+  .portrait{justify-self:start;width:200px}
+  .body,.honest,.stack{grid-template-columns:1fr}
+  nav .links{display:none}
+  section{padding-top:60px}
+}
+@media (max-width:860px){
+  nav{flex-wrap:wrap;gap:10px 16px;padding-block:16px}
+  nav .links{display:flex;gap:16px;font-size:.88rem}
+  .camps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .camp.lead{grid-column:1/-1}
+  .steps{grid-template-columns:1fr;gap:10px}
+  .steps div{display:grid;grid-template-columns:2.2rem minmax(0,1fr);column-gap:8px;row-gap:4px;padding:16px 18px}
+  .steps div::before{grid-row:1/3;padding-top:3px}
+}
+@media (max-width:600px){
+  .camps{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div{padding:18px 12px 20px 0}
+  .facts b{font-size:1.6rem}
+  nav .links{gap:14px;font-size:.84rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Page GROW */
+.lede{font-size:1.06rem;max-width:68ch}
+.lede + .lede{margin-top:14px}
+.path{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:34px}
+.path article{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.path h3{font-size:1.25rem}
+.path .meta{font-family:var(--f-mono);font-size:.76rem;color:var(--muted)}
+.path p{font-size:.95rem}
+.nums{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.nums .row{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,.5fr) minmax(0,1.3fr);gap:10px 28px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.nums b{font-family:var(--f-display);font-size:1.9rem;font-weight:600;color:var(--accent-ink);line-height:1}
+.nums h3{font-size:1.1rem}
+.nums .meta{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);display:block;margin-top:4px}
+.nums p{font-size:.95rem;color:var(--muted)}
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card h3{font-size:1.25rem}
+.card p{font-size:.97rem}
+.card blockquote{margin:0;border-left:3px solid var(--accent);padding:2px 0 2px 14px;color:var(--muted);font-size:.95rem}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.tools div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tools h3{font-size:1.1rem}
+.tools p{font-size:.93rem;color:var(--muted)}
+.tools .badge{margin-bottom:2px}
+.badge.grey{color:var(--muted);background:transparent;border:1px dashed var(--line)}
+.todo{display:block;background:#fff4cc;color:#5c4300;border:1px dashed #c99a06;border-radius:8px;padding:10px 14px;font-size:.92rem}
+.todo::before{content:"À compléter · ";font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table.t{width:100%;border-collapse:collapse;font-size:.92rem;min-width:620px}
+table.t th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:12px 16px;border-bottom:1px solid var(--line)}
+table.t td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td:first-child{font-weight:600;white-space:nowrap}
+.seq3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.seq3 div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.seq3 .d{font-family:var(--f-mono);font-size:.78rem;color:var(--accent-ink)}
+.seq3 p{font-size:.93rem}
+.sub-h{font-size:1.3rem;margin:44px 0 16px}
+.note{color:var(--muted);font-size:.9rem;margin-top:12px;max-width:72ch}
+.prac{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.prac div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.prac dt{margin:0}
+@media (min-width:861px){#methode .steps{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (max-width:860px){.two-col,.seq3{grid-template-columns:1fr}.nums .row{grid-template-columns:minmax(0,1fr) auto}.nums .row p{grid-column:1/-1}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .todo{background:#3a2f0a;color:#ffe08a;border-color:#a37f0a}}
+:root[data-theme="dark"] .todo{background:#3a2f0a;color:#ffe08a;border-color:#a37f0a}
+
+/* Flux client */
+.lanes{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 14px;padding:0 0 8px}
+.lanes .lh{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-align:center;padding:10px 0;border-bottom:2px solid var(--line)}
+.lanes .lh.me{color:var(--accent-ink);border-color:var(--accent)}
+.lane-bg{position:absolute;top:0;bottom:0;border-radius:12px;background:var(--surface);border:1px solid var(--line);z-index:0}
+.lanes > *{position:relative;z-index:1}
+.st{margin:0 10px;border-radius:10px;padding:12px 14px;background:var(--paper);border:1px solid var(--line);font-size:.92rem;line-height:1.45}
+.st b{display:block;font-family:var(--f-display);font-weight:600;font-size:1rem;margin-bottom:3px}
+.st .n{font-family:var(--f-mono);font-size:.72rem;color:var(--accent-ink);margin-right:6px}
+.st.meet{background:var(--accent-soft);border-color:var(--accent)}
+.st.loop{border-style:dashed;border-color:var(--accent)}
+.st .who{display:none}
+.c1{grid-column:1}.c2{grid-column:2}.c3{grid-column:3}.c12{grid-column:1/3}.c23{grid-column:2/4}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted);margin-top:12px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid var(--line);background:var(--paper)}
+.legend i.m{background:var(--accent-soft);border-color:var(--accent)}
+.legend i.l{border:1px dashed var(--accent)}
+.reg td:first-child{font-weight:400}
+.reg .s{font-family:var(--f-mono);font-size:.76rem;border-radius:99px;padding:2px 9px;white-space:nowrap}
+.reg .s.demo{background:var(--accent-soft);color:var(--accent-ink)}
+.reg .s.tt{background:#eef0f4;color:#4b5669}
+.reg .s.ko{background:#fbe9ec;color:#9b2c3f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .reg .s.tt{background:#1d283b;color:#b6c2d4}:root:not([data-theme="light"]) .reg .s.ko{background:#3a1820;color:#f3a6b4}}
+:root[data-theme="dark"] .reg .s.tt{background:#1d283b;color:#b6c2d4}
+:root[data-theme="dark"] .reg .s.ko{background:#3a1820;color:#f3a6b4}
+@media (max-width:640px){
+  .lanes{grid-template-columns:1fr;gap:10px}
+  .lanes .lh,.lane-bg{display:none}
+  .lanes > .st{grid-column:1;margin:0}
+  .st .who{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+}
+</style>
+</head>
+<body>
+
+<div class="dark">
+  <div class="inner">
+    <nav aria-label="Navigation principale">
+      <a class="brand" href="index.html">Stéphane Wickra</a>
+      <div class="links"><a href="#parcours">Parcours</a><a href="#client">Avec un client</a><a href="#outils">Outils</a><a href="#grow">Pour GROW</a></div>
+    </nav>
+    <header class="hero">
+      <div>
+        <span class="kicker">Pour Alexandre · GROW · 27 novembre 2026</span>
+        <h1>Ce que tu vas sûrement vouloir savoir sur moi.</h1>
+        <p class="sub">Pour qu'on passe notre demi-heure sur l'essentiel, j'ai rassemblé ici <strong>mon parcours, mes vrais chiffres, la façon dont je prendrais en main un client, mes outils</strong>, et la manière dont je remplirais l'agenda de GROW.</p>
+        <div class="cta">
+          <a class="btn primary" href="#client">Avec un client qui vient de signer</a>
+          <a class="btn ghost" href="index.html">Le portfolio complet</a>
+        </div>
+      </div>
+      <div class="portrait"><img src="img/portrait.jpg" alt="Portrait de Stéphane Wickra" width="600" height="600"></div>
+    </header>
+    <div class="facts">
+      <div><b>6 ans</b><span>d'acquisition B2B</span></div>
+      <div><b>2 côtés</b><span>l'agence et le client</span></div>
+      <div><b>≈ 590</b><span>démos décrochées sur 3 campagnes chiffrées</span></div>
+      <div><b>Dispo</b><span>immédiatement, opérationnel tout de suite</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="inner">
+
+  <section id="parcours" aria-labelledby="t-p">
+    <div class="sec-head">
+      <span class="kicker">Parcours</span>
+      <h2 id="t-p">Remplir des agendas B2B de RDV qualifiés, c'est mon métier depuis six ans.</h2>
+    </div>
+    <p class="lede">Je connais la vie d'agence, et je connais aussi la vie du client. En agence, je livrais des rendez-vous à plusieurs clients en parallèle et je leur rendais des comptes. Chez OFFOLIO, c'était ma propre entreprise qui attendait les démos. Les deux fois, en petite équipe.</p>
+    <div class="path">
+      <article>
+        <span class="meta">2022 – 2023 · côté agence</span>
+        <h3>Une agence growth B2B</h3>
+        <p>Les campagnes de plusieurs clients B2B en parallèle, dont un acteur de la livraison express et un éditeur de logiciels, avec un reporting régulier au client.</p>
+      </article>
+      <article>
+        <span class="meta">2024 – 2025 · côté client</span>
+        <h3>OFFOLIO</h3>
+        <p>L'outbound de l'entreprise sur Lemlist : choix des cibles, planning d'envoi, séquences, registre des leads et suivi des démos.</p>
+      </article>
+      <article>
+        <span class="meta">Aujourd'hui · freelance</span>
+        <h3>Sites web pour commerces de quartier</h3>
+        <p>Je trouve mes clients moi-même, par sessions d'appels à froid.</p>
+        <p class="cap" style="margin:0">En bénévolat, j'ai aussi construit avec Claude Code le site et l'outil d'inscription de mon club de karaté. <a href="kds.html">Voir</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section id="chiffres" aria-labelledby="t-c">
+    <div class="sec-head">
+      <span class="kicker">Mes chiffres</span>
+      <h2 id="t-c">Je compte en démos, pas en envois.</h2>
+      <p>J'ai pensé et créé ces campagnes moi-même, avec les méthodes d'avant l'IA. Aujourd'hui, je peux refaire la même chose. Chaque chiffre vient de mes fichiers de suivi ; seul OFFOLIO est nommé, les autres étaient des clients de l'agence.</p>
+    </div>
+    <div class="nums">
+      <div class="row">
+        <div><h3>OFFOLIO</h3><span class="meta">2024 – 2025 · interne · Lemlist</span></div>
+        <b>213</b>
+        <p>démos sur ≈ 23 300 envois, 35 % d'ouverture. Dont 44 démos personnalisées, la deuxième étape après la démo générique.</p>
+      </div>
+      <div class="row">
+        <div><h3>Livraison express B2B</h3><span class="meta">2022 – 2023 · client de l'agence</span></div>
+        <b>252</b>
+        <p>démos sur ≈ 22 200 contacts, soit 1,13 %. Huit cibles, avec un taux de réponse de 2,2 à 5,3 % selon la campagne.</p>
+      </div>
+      <div class="row">
+        <div><h3>Éditeur de logiciels B2B</h3><span class="meta">2022 · client de l'agence</span></div>
+        <b>≈ 128</b>
+        <p>démos sur ≈ 25 500 envois, 33 % d'ouverture.</p>
+      </div>
+    </div>
+    <p class="note">Le détail de la campagne OFFOLIO (séquences, planning d'envoi par cible, résultats par cible) est sur le portfolio : <a href="index.html#offolio">voir le cas OFFOLIO</a>.</p>
+  </section>
+
+  <section id="client" aria-labelledby="t-cl">
+    <div class="sec-head">
+      <span class="kicker">Avec un client qui vient de signer</span>
+      <h2 id="t-cl">Comment je m'y prendrais, de la signature aux démos.</h2>
+      <p>Qui fait quoi entre moi, le client et ses prospects. Les étapes à cheval entre deux colonnes sont des rendez-vous partagés.</p>
+    </div>
+    <div class="lanes">
+      <div class="lane-bg" style="left:0;width:calc((100% - 28px)/3)"></div>
+      <div class="lane-bg" style="left:calc((100% - 28px)/3 + 14px);width:calc((100% - 28px)/3)"></div>
+      <div class="lane-bg" style="left:calc(2*(100% - 28px)/3 + 28px);width:calc((100% - 28px)/3)"></div>
+      <div class="lh me c1">Moi</div><div class="lh c2">Client</div><div class="lh c3">Prospects</div>
+      <div class="st meet c12"><span class="who">Moi · Client</span><b><span class="n">01</span>Réunion de lancement</b>Comprendre ses besoins, son offre et les clients qu'il veut rencontrer.</div>
+      <div class="st c1"><span class="who">Moi</span><b><span class="n">02</span>Cartographier les cibles</b>Le potentiel de chaque cible et le planning d'envoi, comme chez OFFOLIO.</div>
+      <div class="st c1"><span class="who">Moi</span><b><span class="n">03</span>Écrire les séquences</b>Préparer et enrichir les listes, écrire les messages de chaque étape.</div>
+      <div class="st meet c12"><span class="who">Moi · Client</span><b><span class="n">04</span>Validation</b>Cibles, messages et planning validés ensemble avant le premier envoi.</div>
+      <div class="st c1"><span class="who">Moi</span><b><span class="n">05</span>Lancement des séquences</b>Les envois partent, étape par étape.</div>
+      <div class="st c3"><span class="who">Prospects</span><b><span class="n">06</span>Réponse</b>Le prospect répond, ou passe à l'étape suivante de la séquence.</div>
+      <div class="st c1"><span class="who">Moi</span><b><span class="n">07</span>Registre des leads</b>Chaque réponse est notée et suivie jusqu'à la démo, ou au KO.</div>
+      <div class="st meet c23"><span class="who">Client · Prospects</span><b><span class="n">08</span>Démo</b>Calée dans l'agenda du client, sur un créneau proposé ou une autre date.</div>
+      <div class="st meet loop c12"><span class="who">Moi · Client</span><b><span class="n">09</span>Point régulier sur les chiffres</b>Si une campagne ne décolle pas, je définis une nouvelle approche et je la propose au client. On repart à l'étape 03.</div>
+    </div>
+    <div class="legend"><span><i></i>Mon travail</span><span><i class="m"></i>Rendez-vous partagé</span><span><i class="l"></i>Boucle d'ajustement</span></div>
+
+    <h3 class="sub-h">Le registre des leads</h3>
+    <p class="lede" style="margin-bottom:16px">Le même que celui que je tenais chez OFFOLIO : une ligne par réponse, avec la campagne et l'étape de la séquence qui l'ont déclenchée. C'est lui qui alimente le point régulier avec le client.</p>
+    <div class="tbl-wrap"><table class="t reg">
+      <thead><tr><th>Date</th><th>Entreprise</th><th>Contact</th><th>Campagne</th><th>Sender</th><th>Step</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr><td>JJ/MM</td><td>Entreprise A</td><td>Prénom Nom</td><td>Cible 1</td><td>Expéditeur</td><td>1</td><td><span class="s demo">Démo</span></td></tr>
+        <tr><td>JJ/MM</td><td>Entreprise B</td><td>Prénom Nom</td><td>Cible 2</td><td>Expéditeur</td><td>2</td><td><span class="s tt">Traitement</span></td></tr>
+        <tr><td>JJ/MM</td><td>Entreprise C</td><td>Prénom Nom</td><td>Cible 1</td><td>Expéditeur</td><td>3</td><td><span class="s ko">KO</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Lignes d'exemple. Chez OFFOLIO, ce registre comptait 213 lignes, une par démo décrochée.</p>
+  </section>
+
+  <section id="outils" aria-labelledby="t-o">
+    <div class="sec-head">
+      <span class="kicker">Outils</span>
+      <h2 id="t-o">J'apprends les outils dont j'ai besoin.</h2>
+      <p>Je maîtrise ce qu'il faudra maîtriser : ça a été le cas tout au long de ma carrière. Voici où j'en suis aujourd'hui, outil par outil.</p>
+    </div>
+    <div class="tools">
+      <div><span class="badge">En production</span><h3>Lemlist</h3><p>L'outil de toutes les campagnes OFFOLIO : séquences, envois, suivi.</p></div>
+      <div><span class="badge">En production</span><h3>Dropcontact</h3><p>L'enrichissement des contacts avant envoi.</p></div>
+      <div><span class="badge">Au quotidien</span><h3>Claude et Claude Code</h3><p>Pour écrire, et pour construire mes propres outils : ce site, et les outils de mon club de karaté, en ligne et utilisés.</p></div>
+      <div><span class="badge grey">Appris pour vous</span><h3>Clay</h3><p>Jamais utilisé en production. Je l'ai pris en main pour mon entretien avec Félix : 20 SaaS B2B français, le décideur commercial, l'email en cascade sur 11 fournisseurs (19 trouvés sur 20), un score A/B/C et une accroche écrite par l'IA.</p></div>
+    </div>
+  </section>
+
+  <section id="methode" aria-labelledby="t-m">
+    <div class="sec-head">
+      <span class="kicker">Façon de travailler</span>
+      <h2 id="t-m">Comprendre d'abord, l'outil vient en dernier.</h2>
+      <p>C'est la même logique que votre « nous commençons toujours par un diagnostic » : le besoin bien posé avant de lancer quoi que ce soit.</p>
+    </div>
+    <div class="steps">
+      <div><h3>Comprendre les besoins</h3><p>Écouter ceux qui vivent le problème, avant de proposer quoi que ce soit.</p></div>
+      <div><h3>Cartographier</h3><p>Qui fait quoi, avec quelles données, où ça coince.</p></div>
+      <div><h3>Fixer les règles</h3><p>Conditions, cas limites, et ce que le produit ne fait volontairement pas.</p></div>
+      <div><h3>Articuler la donnée</h3><p>Une source de vérité claire, des exports qui collent aux habitudes de l'utilisateur.</p></div>
+      <div><h3>Construire et livrer</h3><p>Une mise en ligne rapide, utilisée tout de suite, ajustée avec le retour du terrain.</p></div>
+    </div>
+  </section>
+
+  <section id="pourquoi" aria-labelledby="t-w">
+    <div class="sec-head">
+      <span class="kicker">Pourquoi GROW</span>
+      <h2 id="t-w">C'est pile la continuité de mon métier.</h2>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <h3>Pourquoi GROW</h3>
+        <p>GROW mesure ses missions comme je mesure mon travail : en rendez-vous et en chiffre d'affaires, pas en volume d'envois. Et j'ai envie de me développer dans ce métier.</p>
+        <blockquote>« Le seul critère de réussite est le chiffre d'affaires généré. » <br>grow-ps.com</blockquote>
+      </div>
+      <div class="card">
+        <h3>Grandir</h3>
+        <p>J'ai envie de grandir tout court, et GROW est un très bon vecteur pour ça.</p>
+        <p>Je ne serai pas manager pour le moment, et ça me va. Si ça vient, ça me va aussi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="grow" aria-labelledby="t-g">
+    <div class="sec-head">
+      <span class="kicker">Pour GROW</span>
+      <h2 id="t-g">Comment je remplirais l'agenda de GROW.</h2>
+      <p>Une première hypothèse, à challenger ensemble. J'applique votre propre méthode à GROW : diagnostic, signaux, séquence, mesure.</p>
+    </div>
+    <p class="lede"><strong>Le diagnostic.</strong> GROW vend le mieux à des start-ups et scale-ups B2B qui doivent remplir l'agenda de leurs commerciaux sans avoir encore une prospection qui tourne seule. C'est le profil des clients cités sur votre site : Ouihelp, Elleboss, Novelvy, Axomove, tous mesurés en rendez-vous qualifiés.</p>
+    <p class="lede">Le bon moment pour les contacter, c'est quand la pression commerciale monte d'un coup. Une levée de fonds est le signal le plus net : l'argent est là, les objectifs aussi, et l'équipe commerciale n'est souvent pas encore formée. C'est une hypothèse à valider avec tes chiffres : quels clients sont arrivés juste après une levée ?</p>
+
+    <h3 class="sub-h">Les 3 signaux suivis</h3>
+    <div class="tbl-wrap"><table class="t">
+      <thead><tr><th>Signal</th><th>Où le repérer</th><th>Pourquoi c'est le bon moment</th></tr></thead>
+      <tbody>
+        <tr><td>Levée de fonds récente</td><td>Licorne Society, Screeningpass, presse startup (moins de 60 jours)</td><td>Budget disponible et objectifs de croissance tout neufs</td></tr>
+        <tr><td>Premier SDR ou Business Developer recruté</td><td>WTTJ, LinkedIn Jobs, page carrières</td><td>Le besoin est reconnu, mais le recruté mettra du temps à être productif</td></tr>
+        <tr><td>Fondateur qui vend encore seul</td><td>LinkedIn : le CEO publie sur ses ventes, pas de profil commercial dans l'équipe</td><td>Le temps du fondateur est la ressource la plus rare</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Un compte qui coche deux signaux passe en priorité A.</p>
+
+    <h3 class="sub-h">10 comptes qui viennent de lever</h3>
+    <div class="tbl-wrap"><table class="t">
+      <thead><tr><th>Entreprise</th><th>Levée</th><th>Ce qu'elle vend</th><th>Angle d'approche</th></tr></thead>
+      <tbody>
+        <tr><td>Revio</td><td>2,5 M€, 23/11</td><td>Agents IA pour l'administratif des flottes auto d'entreprise</td><td>« Les gestionnaires de flotte ne cherchent pas un nouvel outil : il faut aller les chercher. »</td></tr>
+        <tr><td>Speeral</td><td>2,5 M€, 23/11</td><td>SaaS IA qui revend les stocks dormants des détaillants</td><td>« Chaque détaillant a du stock qui dort ; peu savent que vous existez. »</td></tr>
+        <tr><td>Blumana</td><td>1,2 M€, 23/11</td><td>Agent IA d'études consommateurs pour équipes produit et marketing</td><td>« Des équipes marketing déjà très sollicitées : un angle précis, pas un pitch. »</td></tr>
+        <tr><td>Previsia</td><td>3,8 M€, 23/11</td><td>Évaluation des risques de sites, pour assureurs et courtiers</td><td>« Les courtiers se travaillent un par un, au téléphone autant qu'à l'écrit. »</td></tr>
+        <tr><td>Heal.dev</td><td>4 M€, 16/11</td><td>Agents IA qui détectent les failles avant mise en production</td><td>« Les CTO se méfient du cold email sécurité : une preuve dès la première ligne. »</td></tr>
+        <tr><td>Namkin</td><td>1,5 M€, 16/11</td><td>Signaux faibles marketing pour l'industrie</td><td>« Vendre des signaux faibles à des industriels, c'est déjà parler leur langue. »</td></tr>
+        <tr><td>Well</td><td>3,6 M€, 16/11</td><td>Assistant IA sur WhatsApp pour factures, relances et TVA des TPE</td><td>« Des milliers de dirigeants de TPE : un jeu de volume et de ciblage. »</td></tr>
+        <tr><td>Stoa</td><td>4 M$, nov.</td><td>Plateforme IA pour plans, calendriers et rapports de chantier</td><td>« Les conducteurs de travaux répondent au téléphone, rarement aux emails. »</td></tr>
+        <tr><td>Lawster</td><td>847 k$, nov.</td><td>IA juridique et juristes par abonnement</td><td>« Les PME n'achètent pas du juridique, elles achètent de la tranquillité. »</td></tr>
+        <tr><td>Granit</td><td>4 M$, nov.</td><td>Agents IA pour l'administratif des professionnels de santé</td><td>« Les cabinets de santé se prospectent par réseau et par téléphone. »</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Sources : Licorne Society et Screeningpass, novembre 2026. Chaque compte demande un canal et un angle différents selon son acheteur. Le stade et l'effectif seraient vérifiés avant d'entrer en séquence.</p>
+
+    <h3 class="sub-h">La séquence en 3 touches</h3>
+    <div class="seq3">
+      <div><span class="d">J0 · email</span><p>« Bravo pour la levée de {{Entreprise}}. Après une levée, la question devient vite : qui remplit l'agenda des commerciaux ? {{Angle}}. Chez GROW, on construit et on fait tourner cette prospection, de la liste jusqu'au rendez-vous. 15 minutes pour en parler ? »</p></div>
+      <div><span class="d">J+2 · LinkedIn</span><p>Connexion sans note. Après acceptation : « Je vous ai écrit au sujet de la suite de votre levée. Je vous laisse voir si le sujet est d'actualité. »</p></div>
+      <div><span class="d">J+5 · appel</span><p>« Comment comptez-vous remplir l'agenda commercial ces six prochains mois ? » Une question, pas un pitch, et on écoute.</p></div>
+    </div>
+    <p class="note">Le canal de tête change selon l'acheteur : téléphone d'abord pour Stoa ou Granit, email et LinkedIn d'abord pour Heal.dev ou Blumana.</p>
+
+    <h3 class="sub-h">Comment je mesurerais</h3>
+    <p class="lede">Un seul chiffre compte à la fin : les rendez-vous qualifiés qui deviennent des clients GROW. En chemin, je suivrais par signal et par canal le taux de réponse, le taux de rendez-vous, et le signal gagnant : au bout de quatre semaines, on garde celui qui convertit le mieux. Première étape proposée : <strong>50 comptes, deux semaines, puis on regarde les chiffres ensemble.</strong></p>
+  </section>
+
+  <section id="pratique" aria-labelledby="t-q">
+    <div class="sec-head">
+      <span class="kicker">Côté pratique</span>
+      <h2 id="t-q">Les réponses aux questions de fin d'entretien.</h2>
+    </div>
+    <div class="prac">
+      <div><dt>Disponibilité</dt><p>Immédiate, et pas besoin de me former.</p></div>
+      <div><dt>Lieu</dt><p>Île-de-France.</p></div>
+      <div><dt>Langue</dt><p>Surtout le français.</p></div>
+      <div><dt>Rémunération</dt><p>La fourchette de l'annonce, 40–50 K€, me convient.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="dark contact" id="contact">
+  <div class="inner">
+    <div class="rule" aria-hidden="true"></div>
+    <h2>C'est quoi la suite ?</h2>
+    <p class="mail">stephane@wickra.pro</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:stephane@wickra.pro">Écrire à Stéphane</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/stephane-wickramarachchige" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <small>Île-de-France · disponible immédiatement</small>
+  </div>
+</div>
+
+</body>
+</html>
